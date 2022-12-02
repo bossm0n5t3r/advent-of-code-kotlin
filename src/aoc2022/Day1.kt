@@ -3,6 +3,9 @@ package aoc2022
 import utils.PuzzleInput
 import utils.readInputForEachLine
 
+/**
+ * --- Day 1: Calorie Counting ---
+ */
 fun main() {
     fun part1(puzzleInput: PuzzleInput): Long {
         var maxTotalCalories = 0L
