@@ -68,6 +68,12 @@ fun main() {
 
     val puzzleInput = PuzzleInput(2022, "Day1.txt")
 
-    println(part1(puzzleInput))
-    println(part2(puzzleInput))
+    part1(puzzleInput).run {
+        println(this)
+        require(this == 72017L)
+    }
+    part2(puzzleInput).run {
+        println(this)
+        require(this == 212520L)
+    }
 }
