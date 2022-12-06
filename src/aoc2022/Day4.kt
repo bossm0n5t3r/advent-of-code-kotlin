@@ -1,15 +1,15 @@
 package aoc2022
 
-import utils.PuzzleInput
 import utils.readInputForEachLine
+import utils.verify
 
 /**
  * --- Day 4: Camp Cleanup ---
  */
 fun main() {
-    fun part1(puzzleInput: PuzzleInput): Int {
+    fun part1(): Int {
         var result = 0
-        puzzleInput.readInputForEachLine { line ->
+        "2022/Day4.txt".readInputForEachLine { line ->
             val (firstSections, secondSections) = line.split(",").map { sectionPair ->
                 val (startSection, endSection) = sectionPair.split("-").map { intStr -> intStr.toInt() }
                 (startSection..endSection).toSet()
@@ -21,9 +21,9 @@ fun main() {
         return result
     }
 
-    fun part2(puzzleInput: PuzzleInput): Int {
+    fun part2(): Int {
         var result = 0
-        puzzleInput.readInputForEachLine { line ->
+        "2022/Day4.txt".readInputForEachLine { line ->
             val (firstSections, secondSections) = line.split(",").map { sectionPair ->
                 val (startSection, endSection) = sectionPair.split("-").map { intStr -> intStr.toInt() }
                 (startSection..endSection).toSet()
@@ -35,13 +35,6 @@ fun main() {
         return result
     }
 
-    val puzzleInput = PuzzleInput(2022, "Day4.txt")
-    part1(puzzleInput).run {
-        println(this)
-        require(this == 576)
-    }
-    part2(puzzleInput).run {
-        println(this)
-        require(this == 905)
-    }
+    (part1() to 576).verify()
+    (part2() to 905).verify()
 }
