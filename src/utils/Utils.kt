@@ -4,13 +4,13 @@ import java.io.File
 import java.math.BigInteger
 import java.security.MessageDigest
 
+fun String.asInputStream() = File("src/resources/aoc$this").inputStream()
+
 /**
  * Reads and works for each line from the given input txt file.
  */
-fun String.readInputForEachLine(work: (String) -> Unit) {
-    File("src/resources/aoc$this").inputStream().bufferedReader().forEachLine {
-        work(it)
-    }
+fun String.readInputForEachLine(work: (String) -> Unit) = this.asInputStream().bufferedReader().forEachLine {
+    work(it)
 }
 
 /**
