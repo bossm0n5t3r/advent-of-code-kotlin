@@ -25,5 +25,7 @@ fun String.md5() = BigInteger(1, MessageDigest.getInstance("MD5").digest(toByteA
  */
 fun <T> Pair<T, T>.verify() {
     println(first)
-    require(first == second)
+    require(first == second) {
+        error("first != second - first: $first, second: $second")
+    }
 }
