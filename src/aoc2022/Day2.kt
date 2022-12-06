@@ -1,7 +1,7 @@
 package aoc2022
 
-import utils.PuzzleInput
 import utils.readInputForEachLine
+import utils.verify
 
 /**
  * --- Day 2: Rock Paper Scissors ---
@@ -12,7 +12,7 @@ import utils.readInputForEachLine
  * (0 if you lost, 3 if the round was a draw, and 6 if you won).
  */
 fun main() {
-    fun part1(puzzleInput: PuzzleInput): Long {
+    fun part1(): Long {
         val rockPaperScissors = mapOf(
             "A" to 1,
             "B" to 2,
@@ -29,7 +29,7 @@ fun main() {
         )
 
         var totalScores = 0L
-        puzzleInput.readInputForEachLine {
+        "2022/Day2.txt".readInputForEachLine {
             val (opponentHand, myHand) = it.split(" ").map { hand ->
                 rockPaperScissors[hand] ?: error("NOT FOUND HANDS : $hand")
             }
@@ -40,7 +40,7 @@ fun main() {
         return totalScores
     }
 
-    fun part2(puzzleInput: PuzzleInput): Long {
+    fun part2(): Long {
         val rockPaperScissors = mapOf(
             "A" to 1,
             "B" to 2,
@@ -53,7 +53,7 @@ fun main() {
         )
 
         var totalScores = 0L
-        puzzleInput.readInputForEachLine {
+        "2022/Day2.txt".readInputForEachLine {
             val (opponentHandKey, scoreKey) = it.split(" ")
             val opponentHand = rockPaperScissors[opponentHandKey] ?: error("NOT FOUND HANDS : $opponentHandKey")
             val score = scores[scoreKey] ?: error("NOT FOUND SCORES - scoreKey: $scoreKey")
@@ -66,13 +66,6 @@ fun main() {
         return totalScores
     }
 
-    val puzzleInput = PuzzleInput(2022, "Day2.txt")
-    part1(puzzleInput).run {
-        println(this)
-        require(this == 12740L)
-    }
-    part2(puzzleInput).run {
-        println(this)
-        require(this == 11980L)
-    }
+    (part1() to 12740L).verify()
+    (part2() to 11980L).verify()
 }
