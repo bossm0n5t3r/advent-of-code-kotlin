@@ -1,15 +1,15 @@
 package aoc2022
 
-import utils.PuzzleInput
 import utils.readInputForEachLine
+import utils.verify
 
 /**
  * --- Day 3: Rucksack Reorganization ---
  */
 fun main() {
-    fun part1(puzzleInput: PuzzleInput): Long {
+    fun part1(): Long {
         var totalPriorities = 0L
-        puzzleInput.readInputForEachLine {
+        "2022/Day3.txt".readInputForEachLine {
             val length = it.length
             val firstCompartment = it.subSequence(0, length / 2).toSet()
             val secondCompartment = it.subSequence(length / 2, length).toSet()
@@ -24,11 +24,11 @@ fun main() {
         return totalPriorities
     }
 
-    fun part2(puzzleInput: PuzzleInput): Long {
+    fun part2(): Long {
         var totalPriorities = 0L
         var cnt = 0
         var intersection = ('a'..'z').toSet() + ('A'..'Z').toSet()
-        puzzleInput.readInputForEachLine {
+        "2022/Day3.txt".readInputForEachLine {
             val rucksack = it.toCharArray().toSet()
             intersection = intersection.intersect(rucksack)
             cnt++
@@ -46,13 +46,6 @@ fun main() {
         return totalPriorities
     }
 
-    val puzzleInput = PuzzleInput(2022, "Day3.txt")
-    part1(puzzleInput).run {
-        println(this)
-        require(this == 7826L)
-    }
-    part2(puzzleInput).run {
-        println(this)
-        require(this == 2577L)
-    }
+    (part1() to 7826L).verify()
+    (part2() to 2577L).verify()
 }
