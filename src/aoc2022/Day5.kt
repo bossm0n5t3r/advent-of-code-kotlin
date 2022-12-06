@@ -1,7 +1,7 @@
 package aoc2022
 
-import utils.PuzzleInput
 import utils.readInputForEachLine
+import utils.verify
 import java.util.Stack
 
 /**
@@ -23,11 +23,11 @@ fun main() {
             }
     }
 
-    fun part1(puzzleInput: PuzzleInput): String {
+    fun part1(): String {
         val stacks = mutableMapOf(0 to Stack<Char>())
 
         var parseStack = true
-        puzzleInput.readInputForEachLine {
+        "2022/Day5.txt".readInputForEachLine {
             if (parseStack) {
                 if (it.isNotBlank()) {
                     parseCraftsFromString(it, stacks)
@@ -50,11 +50,11 @@ fun main() {
         return stacks.keys.sorted().drop(1).mapNotNull { stacks[it]?.peek() }.joinToString("")
     }
 
-    fun part2(puzzleInput: PuzzleInput): String {
+    fun part2(): String {
         val stacks = mutableMapOf(0 to Stack<Char>())
 
         var parseStack = true
-        puzzleInput.readInputForEachLine {
+        "2022/Day5.txt".readInputForEachLine {
             if (parseStack) {
                 if (it.isNotBlank()) {
                     parseCraftsFromString(it, stacks)
@@ -85,13 +85,6 @@ fun main() {
         return stacks.keys.sorted().drop(1).mapNotNull { stacks[it]?.peek() }.joinToString("")
     }
 
-    val puzzleInput = PuzzleInput(2022, "Day5.txt")
-    part1(puzzleInput).run {
-        println(this)
-        require(this == "VWLCWGSDQ")
-    }
-    part2(puzzleInput).run {
-        println(this)
-        require(this == "TCGLQSLPW")
-    }
+    (part1() to "VWLCWGSDQ").verify()
+    (part2() to "TCGLQSLPW").verify()
 }
