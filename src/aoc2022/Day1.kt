@@ -1,16 +1,16 @@
 package aoc2022
 
-import utils.PuzzleInput
 import utils.readInputForEachLine
+import utils.verify
 
 /**
  * --- Day 1: Calorie Counting ---
  */
 fun main() {
-    fun part1(puzzleInput: PuzzleInput): Long {
+    fun part1(): Long {
         var maxTotalCalories = 0L
         var totalCalories = 0L
-        puzzleInput.readInputForEachLine {
+        "2022/Day1.txt".readInputForEachLine {
             if (it.isBlank()) {
                 if (totalCalories > maxTotalCalories) {
                     maxTotalCalories = totalCalories
@@ -23,7 +23,7 @@ fun main() {
         return maxTotalCalories
     }
 
-    fun part2(puzzleInput: PuzzleInput): Long {
+    fun part2(): Long {
         data class Top3Elves(
             var top1: Long = 0L,
             var top2: Long = 0L,
@@ -54,7 +54,7 @@ fun main() {
 
         val top3Elves = Top3Elves()
         var totalCalories = 0L
-        puzzleInput.readInputForEachLine {
+        "2022/Day1.txt".readInputForEachLine {
             if (it.isBlank()) {
                 top3Elves.update(totalCalories)
                 totalCalories = 0L
@@ -66,13 +66,6 @@ fun main() {
         return top3Elves.totalCalories()
     }
 
-    val puzzleInput = PuzzleInput(2022, "Day1.txt")
-    part1(puzzleInput).run {
-        println(this)
-        require(this == 72017L)
-    }
-    part2(puzzleInput).run {
-        println(this)
-        require(this == 212520L)
-    }
+    (part1() to 72017L).verify()
+    (part2() to 212520L).verify()
 }
