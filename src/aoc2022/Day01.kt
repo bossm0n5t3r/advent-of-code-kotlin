@@ -10,7 +10,7 @@ fun main() {
     fun part1(): Long {
         var maxTotalCalories = 0L
         var totalCalories = 0L
-        "2022/Day1.txt".readInputForEachLine {
+        "2022/Day01.txt".readInputForEachLine {
             if (it.isBlank()) {
                 if (totalCalories > maxTotalCalories) {
                     maxTotalCalories = totalCalories
@@ -54,7 +54,7 @@ fun main() {
 
         val top3Elves = Top3Elves()
         var totalCalories = 0L
-        "2022/Day1.txt".readInputForEachLine {
+        "2022/Day01.txt".readInputForEachLine {
             if (it.isBlank()) {
                 top3Elves.update(totalCalories)
                 totalCalories = 0L
