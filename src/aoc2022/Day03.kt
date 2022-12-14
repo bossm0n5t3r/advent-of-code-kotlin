@@ -9,7 +9,7 @@ import utils.verify
 fun main() {
     fun part1(): Long {
         var totalPriorities = 0L
-        "2022/Day3.txt".readInputForEachLine {
+        "2022/Day03.txt".readInputForEachLine {
             val length = it.length
             val firstCompartment = it.subSequence(0, length / 2).toSet()
             val secondCompartment = it.subSequence(length / 2, length).toSet()
@@ -28,7 +28,7 @@ fun main() {
         var totalPriorities = 0L
         var cnt = 0
         var intersection = ('a'..'z').toSet() + ('A'..'Z').toSet()
-        "2022/Day3.txt".readInputForEachLine {
+        "2022/Day03.txt".readInputForEachLine {
             val rucksack = it.toCharArray().toSet()
             intersection = intersection.intersect(rucksack)
             cnt++
