@@ -29,7 +29,7 @@ fun main() {
         )
 
         var totalScores = 0L
-        "2022/Day2.txt".readInputForEachLine {
+        "2022/Day02.txt".readInputForEachLine {
             val (opponentHand, myHand) = it.split(" ").map { hand ->
                 rockPaperScissors[hand] ?: error("NOT FOUND HANDS : $hand")
             }
@@ -53,7 +53,7 @@ fun main() {
         )
 
         var totalScores = 0L
-        "2022/Day2.txt".readInputForEachLine {
+        "2022/Day02.txt".readInputForEachLine {
             val (opponentHandKey, scoreKey) = it.split(" ")
             val opponentHand = rockPaperScissors[opponentHandKey] ?: error("NOT FOUND HANDS : $opponentHandKey")
             val score = scores[scoreKey] ?: error("NOT FOUND SCORES - scoreKey: $scoreKey")
