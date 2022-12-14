@@ -27,7 +27,7 @@ fun main() {
         val stacks = mutableMapOf(0 to Stack<Char>())
 
         var parseStack = true
-        "2022/Day5.txt".readInputForEachLine {
+        "2022/Day05.txt".readInputForEachLine {
             if (parseStack) {
                 if (it.isNotBlank()) {
                     parseCraftsFromString(it, stacks)
@@ -54,7 +54,7 @@ fun main() {
         val stacks = mutableMapOf(0 to Stack<Char>())
 
         var parseStack = true
-        "2022/Day5.txt".readInputForEachLine {
+        "2022/Day05.txt".readInputForEachLine {
             if (parseStack) {
                 if (it.isNotBlank()) {
                     parseCraftsFromString(it, stacks)
