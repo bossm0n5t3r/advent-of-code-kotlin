@@ -7,7 +7,7 @@ import utils.verify
  * --- Day 8: Treetop Tree House ---
  */
 fun main() {
-    val trees = "2022/Day8.txt"
+    val trees = "2022/Day08.txt"
         .asInputStream()
         .bufferedReader()
         .readLines()
