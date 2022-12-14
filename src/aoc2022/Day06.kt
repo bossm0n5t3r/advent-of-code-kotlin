@@ -8,7 +8,7 @@ import utils.verify
  */
 fun main() {
     fun startOfMessageMarker(marker: Int): Int {
-        val dataStreamBuffer = "2022/Day6.txt".asInputStream().bufferedReader().readText()
+        val dataStreamBuffer = "2022/Day06.txt".asInputStream().bufferedReader().readText()
         (0 until dataStreamBuffer.length - marker).forEach {
             val tmp = dataStreamBuffer.slice(it until it + marker)
             if (tmp.toSet().size == marker) return it + marker
