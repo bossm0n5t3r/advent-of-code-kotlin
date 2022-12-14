@@ -16,7 +16,7 @@ fun main() {
         val dirs = mutableMapOf<String, MutableSet<File>>()
         var curDir = "/"
         dirs[curDir] = mutableSetOf()
-        "2022/Day7.txt".readInputForEachLine { line ->
+        "2022/Day07.txt".readInputForEachLine { line ->
             val splitLine = line.split(" ")
             if (splitLine.first() == "$") {
                 val cmd = splitLine[1]
