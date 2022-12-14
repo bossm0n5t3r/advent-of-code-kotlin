@@ -9,7 +9,7 @@ import utils.verify
 fun main() {
     fun part1(): Int {
         var result = 0
-        "2022/Day4.txt".readInputForEachLine { line ->
+        "2022/Day04.txt".readInputForEachLine { line ->
             val (firstSections, secondSections) = line.split(",").map { sectionPair ->
                 val (startSection, endSection) = sectionPair.split("-").map { intStr -> intStr.toInt() }
                 (startSection..endSection).toSet()
@@ -23,7 +23,7 @@ fun main() {
 
     fun part2(): Int {
         var result = 0
-        "2022/Day4.txt".readInputForEachLine { line ->
+        "2022/Day04.txt".readInputForEachLine { line ->
             val (firstSections, secondSections) = line.split(",").map { sectionPair ->
                 val (startSection, endSection) = sectionPair.split("-").map { intStr -> intStr.toInt() }
                 (startSection..endSection).toSet()
