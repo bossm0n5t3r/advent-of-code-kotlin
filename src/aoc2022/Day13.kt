@@ -43,36 +43,42 @@ fun main() {
     fun parsePacket(packet: String) = parseList(packet).first
 
     fun compare(left: Any, right: Any): Int {
-        if (left is Int && right is Int) {
-            return when {
-                left < right -> 1
-                left > right -> -1
-                else -> 0
+        return when {
+            left is Int && right is Int -> {
+                when {
+                    left < right -> 1
+                    left > right -> -1
+                    else -> 0
+                }
             }
-        } else if (left is List<*> && right is List<*>) {
-            var i = 0
-            while (i < left.size && i < right.size) {
-                val cmp = compare(left[i]!!, right[i]!!)
-                if (cmp != 0)
-                    return cmp
-                ++i
+
+            left is List<*> && right is List<*> -> {
+                var i = 0
+                while (i < left.size && i < right.size) {
+                    val cmp = compare(left[i]!!, right[i]!!)
+                    if (cmp != 0)
+                        return cmp
+                    ++i
+                }
+                when {
+                    left.size < right.size -> 1
+                    left.size > right.size -> -1
+                    else -> 0
+                }
             }
-            return when {
-                left.size < right.size -> 1
-                left.size > right.size -> -1
-                else -> 0
+
+            else -> {
+                val newLeft: List<Any>
+                var newRight: List<Any>
+                if (left is Int) {
+                    newLeft = listOf(left)
+                    newRight = right as List<Any>
+                } else {
+                    newLeft = left as List<Any>
+                    newRight = listOf(right)
+                }
+                compare(newLeft, newRight)
             }
-        } else {
-            val newLeft: List<Any>
-            var newRight: List<Any>
-            if (left is Int) {
-                newLeft = listOf(left)
-                newRight = right as List<Any>
-            } else {
-                newLeft = left as List<Any>
-                newRight = listOf(right)
-            }
-            return compare(newLeft, newRight)
         }
     }
 
@@ -89,8 +95,25 @@ fun main() {
         }.sum()
     }
 
-    fun part2() {
+    fun part2(): Int {
+        val packets = mutableListOf<List<Any>>()
+
+        lines.chunked(3).forEach {
+            packets.addAll(it.dropLast(1).map { s: String -> parsePacket(s) })
+        }
+
+        val div1 = parsePacket("[[2]]")
+        val div2 = parsePacket("[[6]]")
+        packets.add(div1)
+        packets.add(div2)
+
+        val sortedPackets = packets.sortedWith { ls1: List<Any>, ls2: List<Any> ->
+            if (ls1 == ls2) 0 else compare(ls2, ls1)
+        }.toMutableList()
+
+        return (sortedPackets.indexOf(div1) + 2) * (sortedPackets.indexOf(div2) + 2)
     }
 
     (part1() to 5808).verify()
+    (part2() to 22713).verify()
 }
