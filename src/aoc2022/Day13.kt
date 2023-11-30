@@ -9,7 +9,10 @@ import utils.verify
 fun main() {
     val lines = "2022/Day13.txt".asInputStream().bufferedReader().readLines()
 
-    fun parseList(packet: String, nextIdxStart: Int = 1): Pair<List<Any>, Int> {
+    fun parseList(
+        packet: String,
+        nextIdxStart: Int = 1,
+    ): Pair<List<Any>, Int> {
         val result = mutableListOf<Any>()
         var curr = ""
         var nextIdx = nextIdxStart
@@ -18,14 +21,16 @@ fun main() {
             c = packet[nextIdx++]
             when (c) {
                 ']' -> {
-                    if (curr != "")
+                    if (curr != "") {
                         result.add(curr.toInt())
+                    }
                     return Pair(result, nextIdx)
                 }
 
                 ',' -> {
-                    if (curr != "")
+                    if (curr != "") {
                         result.add(curr.toInt())
+                    }
                     curr = ""
                 }
 
@@ -42,7 +47,10 @@ fun main() {
 
     fun parsePacket(packet: String) = parseList(packet).first
 
-    fun compare(left: Any, right: Any): Int {
+    fun compare(
+        left: Any,
+        right: Any,
+    ): Int {
         return when {
             left is Int && right is Int -> {
                 when {
@@ -56,8 +64,9 @@ fun main() {
                 var i = 0
                 while (i < left.size && i < right.size) {
                     val cmp = compare(left[i]!!, right[i]!!)
-                    if (cmp != 0)
+                    if (cmp != 0) {
                         return cmp
+                    }
                     ++i
                 }
                 when {
@@ -107,9 +116,10 @@ fun main() {
         packets.add(div1)
         packets.add(div2)
 
-        val sortedPackets = packets.sortedWith { ls1: List<Any>, ls2: List<Any> ->
-            if (ls1 == ls2) 0 else compare(ls2, ls1)
-        }.toMutableList()
+        val sortedPackets =
+            packets.sortedWith { ls1: List<Any>, ls2: List<Any> ->
+                if (ls1 == ls2) 0 else compare(ls2, ls1)
+            }.toMutableList()
 
         return (sortedPackets.indexOf(div1) + 2) * (sortedPackets.indexOf(div2) + 2)
     }
