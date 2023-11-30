@@ -7,11 +7,12 @@ import utils.verify
  * --- Day 8: Treetop Tree House ---
  */
 fun main() {
-    val trees = "2022/Day08.txt"
-        .asInputStream()
-        .bufferedReader()
-        .readLines()
-        .map { it.toCharArray().map { c -> c.digitToInt() } }
+    val trees =
+        "2022/Day08.txt"
+            .asInputStream()
+            .bufferedReader()
+            .readLines()
+            .map { it.toCharArray().map { c -> c.digitToInt() } }
 
     fun part1(): Int {
         val (m, n) = (trees.size to trees.first().size)
@@ -69,7 +70,10 @@ fun main() {
     ) {
         private val height = trees[r][c]
 
-        fun getScenicScore(m: Int, n: Int): Int {
+        fun getScenicScore(
+            m: Int,
+            n: Int,
+        ): Int {
             if (r == 0 || r == m - 1 || c == 0 || c == n - 1) return 0
             val seenTrees = IntArray(4) { 0 }
 
