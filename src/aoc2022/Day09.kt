@@ -11,28 +11,32 @@ fun main() {
         private val knots = Array(size) { 0 to 0 }
         val lastKnotVisited = mutableSetOf(knots.last())
 
-        fun move(dir: Char, dist: Int) {
+        fun move(
+            dir: Char,
+            dist: Int,
+        ) {
             repeat(dist) {
                 val (curR, curC) = knots.first()
-                knots[0] = when (dir) {
-                    'U' -> {
-                        curR - 1 to curC
-                    }
+                knots[0] =
+                    when (dir) {
+                        'U' -> {
+                            curR - 1 to curC
+                        }
 
-                    'D' -> {
-                        curR + 1 to curC
-                    }
+                        'D' -> {
+                            curR + 1 to curC
+                        }
 
-                    'L' -> {
-                        curR to curC - 1
-                    }
+                        'L' -> {
+                            curR to curC - 1
+                        }
 
-                    'R' -> {
-                        curR to curC + 1
-                    }
+                        'R' -> {
+                            curR to curC + 1
+                        }
 
-                    else -> error("NOT FOUND dir: $dir")
-                }
+                        else -> error("NOT FOUND dir: $dir")
+                    }
 
                 (0 until knots.lastIndex).forEach { i ->
                     followHeadKnot(headIdx = i, tailIdx = i + 1)
