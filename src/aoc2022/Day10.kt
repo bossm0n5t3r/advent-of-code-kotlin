@@ -18,31 +18,33 @@ fun main() {
         val crt = mutableListOf<String>()
         var tmpCrtLine = ""
 
-        fun command(line: String) = when {
-            line.startsWith("addx") -> {
-                val (_, value) = line.split(" ")
-                val valueV = value.toInt()
-                updateCpuCycles()
-                updateCpuCycles()
-                registerX += valueV
-                updateSpritePosition()
-            }
+        fun command(line: String) =
+            when {
+                line.startsWith("addx") -> {
+                    val (_, value) = line.split(" ")
+                    val valueV = value.toInt()
+                    updateCpuCycles()
+                    updateCpuCycles()
+                    registerX += valueV
+                    updateSpritePosition()
+                }
 
-            line.startsWith("noop") -> {
-                updateCpuCycles()
-            }
+                line.startsWith("noop") -> {
+                    updateCpuCycles()
+                }
 
-            else -> error("NOT FOUND cmd: $line")
-        }
+                else -> error("NOT FOUND cmd: $line")
+            }
 
         private fun updateCpuCycles() {
             cycles++
 
-            tmpCrtLine += if (cycles % 40 in spritePosition) {
-                "#"
-            } else {
-                "."
-            }
+            tmpCrtLine +=
+                if (cycles % 40 in spritePosition) {
+                    "#"
+                } else {
+                    "."
+                }
 
             if (tmpCrtLine.length == 40) {
                 crt.add(tmpCrtLine)
