@@ -29,25 +29,26 @@ fun main() {
             var top2: Long = 0L,
             var top3: Long = 0L,
         ) {
-            fun update(value: Long) = when {
-                value <= top3 -> {}
-                value > top1 -> {
-                    top3 = top2
-                    top2 = top1
-                    top1 = value
-                }
+            fun update(value: Long) =
+                when {
+                    value <= top3 -> {}
+                    value > top1 -> {
+                        top3 = top2
+                        top2 = top1
+                        top1 = value
+                    }
 
-                value in (top2 + 1) until top1 -> {
-                    top3 = top2
-                    top2 = value
-                }
+                    value in (top2 + 1) until top1 -> {
+                        top3 = top2
+                        top2 = value
+                    }
 
-                value in (top3 + 1) until top2 -> {
-                    top3 = value
-                }
+                    value in (top3 + 1) until top2 -> {
+                        top3 = value
+                    }
 
-                else -> {}
-            }
+                    else -> {}
+                }
 
             fun totalCalories() = top1 + top2 + top3
         }
