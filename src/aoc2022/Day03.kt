@@ -15,11 +15,12 @@ fun main() {
             val secondCompartment = it.subSequence(length / 2, length).toSet()
 
             val intersection = firstCompartment.intersect(secondCompartment).first()
-            totalPriorities += if (intersection.code >= 'a'.code) {
-                intersection.code - 'a'.code + 1
-            } else {
-                intersection.code - 'A'.code + 27
-            }
+            totalPriorities +=
+                if (intersection.code >= 'a'.code) {
+                    intersection.code - 'a'.code + 1
+                } else {
+                    intersection.code - 'A'.code + 27
+                }
         }
         return totalPriorities
     }
@@ -34,11 +35,12 @@ fun main() {
             cnt++
             if (cnt == 3) {
                 val badge = intersection.first()
-                totalPriorities += if (badge.code >= 'a'.code) {
-                    badge.code - 'a'.code + 1
-                } else {
-                    badge.code - 'A'.code + 27
-                }
+                totalPriorities +=
+                    if (badge.code >= 'a'.code) {
+                        badge.code - 'a'.code + 1
+                    } else {
+                        badge.code - 'A'.code + 27
+                    }
                 intersection = ('a'..'z').toSet() + ('A'..'Z').toSet()
                 cnt = 0
             }
