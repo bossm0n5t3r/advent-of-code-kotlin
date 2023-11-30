@@ -17,6 +17,7 @@ fun main() {
     }
 
     fun part1() = startOfMessageMarker(4)
+
     fun part2() = startOfMessageMarker(14)
 
     (part1() to 1210).verify()
