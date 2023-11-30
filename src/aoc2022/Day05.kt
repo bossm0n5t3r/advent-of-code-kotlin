@@ -8,7 +8,10 @@ import java.util.Stack
  * --- Day 5: Supply Stacks ---
  */
 fun main() {
-    fun parseCraftsFromString(str: String, stacks: MutableMap<Int, Stack<Char>>) = run {
+    fun parseCraftsFromString(
+        str: String,
+        stacks: MutableMap<Int, Stack<Char>>,
+    ) = run {
         str.chunked(4)
             .map { str -> str.trim() }
             .forEachIndexed { index, str ->
@@ -35,9 +38,10 @@ fun main() {
                     parseStack = false
                 }
             } else {
-                val (craftsToMove, from, to) = it.split("move", "from", "to")
-                    .drop(1)
-                    .map { s -> s.trim().toInt() }
+                val (craftsToMove, from, to) =
+                    it.split("move", "from", "to")
+                        .drop(1)
+                        .map { s -> s.trim().toInt() }
 
                 repeat(craftsToMove) {
                     stacks[from]?.pop()?.run {
@@ -62,9 +66,10 @@ fun main() {
                     parseStack = false
                 }
             } else {
-                val (craftsToMove, from, to) = it.split("move", "from", "to")
-                    .drop(1)
-                    .map { s -> s.trim().toInt() }
+                val (craftsToMove, from, to) =
+                    it.split("move", "from", "to")
+                        .drop(1)
+                        .map { s -> s.trim().toInt() }
 
                 val tmpStack = Stack<Char>()
 
