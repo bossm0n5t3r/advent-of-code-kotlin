@@ -13,44 +13,50 @@ import utils.verify
  */
 fun main() {
     fun part1(): Long {
-        val rockPaperScissors = mapOf(
-            "A" to 1,
-            "B" to 2,
-            "C" to 3,
-            "X" to 1,
-            "Y" to 2,
-            "Z" to 3,
-        )
+        val rockPaperScissors =
+            mapOf(
+                "A" to 1,
+                "B" to 2,
+                "C" to 3,
+                "X" to 1,
+                "Y" to 2,
+                "Z" to 3,
+            )
 
-        val scores = mapOf(
-            0 to 3,
-            1 to 6,
-            2 to 0,
-        )
+        val scores =
+            mapOf(
+                0 to 3,
+                1 to 6,
+                2 to 0,
+            )
 
         var totalScores = 0L
         "2022/Day02.txt".readInputForEachLine {
-            val (opponentHand, myHand) = it.split(" ").map { hand ->
-                rockPaperScissors[hand] ?: error("NOT FOUND HANDS : $hand")
-            }
-            val score = scores[(myHand - opponentHand + 3) % 3]
-                ?: error("NOT FOUND SCORES - myHand: $myHand, opponentHand: $opponentHand")
+            val (opponentHand, myHand) =
+                it.split(" ").map { hand ->
+                    rockPaperScissors[hand] ?: error("NOT FOUND HANDS : $hand")
+                }
+            val score =
+                scores[(myHand - opponentHand + 3) % 3]
+                    ?: error("NOT FOUND SCORES - myHand: $myHand, opponentHand: $opponentHand")
             totalScores += (myHand + score)
         }
         return totalScores
     }
 
     fun part2(): Long {
-        val rockPaperScissors = mapOf(
-            "A" to 1,
-            "B" to 2,
-            "C" to 3,
-        )
-        val scores = mapOf(
-            "X" to 0,
-            "Y" to 3,
-            "Z" to 6,
-        )
+        val rockPaperScissors =
+            mapOf(
+                "A" to 1,
+                "B" to 2,
+                "C" to 3,
+            )
+        val scores =
+            mapOf(
+                "X" to 0,
+                "Y" to 3,
+                "Z" to 6,
+            )
 
         var totalScores = 0L
         "2022/Day02.txt".readInputForEachLine {
