@@ -14,6 +14,13 @@ fun String.readInputForEachLine(work: (String) -> Unit) =
         work(it)
     }
 
+fun <T> String.mapInputForEachLine(work: (String) -> T): List<T> =
+    this.asInputStream().bufferedReader().readLines().map {
+        work(it)
+    }
+
+fun String.readInput() = this.asInputStream().bufferedReader().readLines()
+
 /**
  * Converts string to md5 hash.
  */
