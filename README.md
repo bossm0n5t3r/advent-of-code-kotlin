@@ -2,7 +2,13 @@
 
 - [https://adventofcode.com/](https://adventofcode.com/)
 
-## 2022
+## [2023](https://adventofcode.com/2023)
+
+|                            Day                            |                File                |
+|:---------------------------------------------------------:|:----------------------------------:|
+| [Day 1: Trebuchet?!](https://adventofcode.com/2023/day/1) | [Day01.kt](./src/aoc2023/Day01.kt) |
+
+## [2022](https://adventofcode.com/2022)
 
 |                                   Day                                   |                File                |
 |:-----------------------------------------------------------------------:|:----------------------------------:|
