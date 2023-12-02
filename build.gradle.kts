@@ -7,13 +7,13 @@ repositories {
     mavenCentral()
 }
 
-tasks {
-    sourceSets {
-        main {
-            java.srcDirs("src")
-        }
+sourceSets {
+    main {
+        kotlin.srcDir("src")
     }
+}
 
+tasks {
     wrapper {
         gradleVersion = "8.5"
     }
