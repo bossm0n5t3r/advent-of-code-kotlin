@@ -8,6 +8,7 @@
 |:------------------------------------------------------------:|:----------------------------------:|
 |  [Day 1: Trebuchet?!](https://adventofcode.com/2023/day/1)   | [Day01.kt](./src/aoc2023/Day01.kt) |
 | [Day 2: Cube Conundrum](https://adventofcode.com/2023/day/2) | [Day02.kt](./src/aoc2023/Day02.kt) |
+|  [Day 3: Gear Ratios](https://adventofcode.com/2023/day/3)   | [Day03.kt](./src/aoc2023/Day03.kt) |
 
 ## [2022](https://adventofcode.com/2022)
 
