@@ -21,6 +21,11 @@ fun <T> String.mapInputForEachLine(work: (String) -> T): List<T> =
 
 fun String.readInput() = this.asInputStream().bufferedReader().readLines()
 
+fun <T> solve(
+    fileName: String,
+    function: (lines: List<String>) -> T,
+): T = function(fileName.readInput())
+
 /**
  * Converts string to md5 hash.
  */
