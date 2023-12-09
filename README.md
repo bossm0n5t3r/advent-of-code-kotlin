@@ -14,6 +14,7 @@
 |           [Day 6: Wait For It](https://adventofcode.com/2023/day/6)           | [Day06.kt](./src/aoc2023/Day06.kt) |
 |           [Day 7: Camel Cards](https://adventofcode.com/2023/day/7)           | [Day07.kt](./src/aoc2023/Day07.kt) |
 |        [Day 8: Haunted Wasteland](https://adventofcode.com/2023/day/8)        | [Day08.kt](./src/aoc2023/Day08.kt) |
+|       [Day 9: Mirage Maintenance](https://adventofcode.com/2023/day/9)        | [Day09.kt](./src/aoc2023/Day09.kt) |
 
 ## [2022](https://adventofcode.com/2022)
 
