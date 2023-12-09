@@ -12,6 +12,7 @@
 |          [Day 4: Scratchcards](https://adventofcode.com/2023/day/4)           | [Day04.kt](./src/aoc2023/Day04.kt) |
 | [Day 5: If You Give A Seed A Fertilizer](https://adventofcode.com/2023/day/5) | [Day05.kt](./src/aoc2023/Day05.kt) |
 |           [Day 6: Wait For It](https://adventofcode.com/2023/day/6)           | [Day06.kt](./src/aoc2023/Day06.kt) |
+|           [Day 7: Camel Cards](https://adventofcode.com/2023/day/7)           | [Day07.kt](./src/aoc2023/Day07.kt) |
 
 ## [2022](https://adventofcode.com/2022)
 
