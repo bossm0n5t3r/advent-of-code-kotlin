@@ -1,21 +1,18 @@
 package aoc2023
 
-import utils.readInput
+import utils.getInputFile
 import utils.verify
 
 /**
  * --- Day 3: Gear Ratios ---
  */
 fun main() {
-    val inputFile = "2023/Day03.txt"
-
     val dr = intArrayOf(-1, -1, -1, 0, 0, 1, 1, 1)
     val dc = intArrayOf(-1, 0, 1, -1, 1, -1, 0, 1)
 
     fun part1(): Int {
         val engineSchematic =
-            inputFile
-                .readInput()
+            getInputFile().readLines()
                 .map { it.toCharArray() }
                 .toTypedArray()
         val r = engineSchematic.size
@@ -61,8 +58,7 @@ fun main() {
 
     fun part2(): Int {
         val engineSchematic =
-            inputFile
-                .readInput()
+            getInputFile().readLines()
                 .map { it.toCharArray() }
                 .toTypedArray()
         val r = engineSchematic.size
