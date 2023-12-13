@@ -1,20 +1,18 @@
 package aoc2023
 
-import utils.readInput
+import utils.getInputFile
 import utils.verify
 
 /**
  * --- Day 2: Cube Conundrum ---
  */
 fun main() {
-    val inputFile = "2023/Day02.txt"
-
     fun part1(
         redCubes: Int,
         greenCubes: Int,
         blueCubes: Int,
     ): Int {
-        return inputFile.readInput().sumOf { line ->
+        return getInputFile().readLines().sumOf { line ->
             val splitLine = line.split(':', ';', ',').map { it.trim().split(" ") }
             val id = splitLine.first().last().toInt()
             splitLine.drop(1).forEach { (count, color) ->
@@ -29,7 +27,7 @@ fun main() {
     }
 
     fun part2(): Int {
-        return inputFile.readInput().sumOf { line ->
+        return getInputFile().readLines().sumOf { line ->
             line
                 .split(':', ';', ',')
                 .map { it.trim().split(" ") }
