@@ -15,6 +15,7 @@
 |           [Day 7: Camel Cards](https://adventofcode.com/2023/day/7)           | [Day07.kt](./src/aoc2023/Day07.kt) |
 |        [Day 8: Haunted Wasteland](https://adventofcode.com/2023/day/8)        | [Day08.kt](./src/aoc2023/Day08.kt) |
 |       [Day 9: Mirage Maintenance](https://adventofcode.com/2023/day/9)        | [Day09.kt](./src/aoc2023/Day09.kt) |
+|           [Day 10: Pipe Maze](https://adventofcode.com/2023/day/10)           | [Day10.kt](./src/aoc2023/Day10.kt) |
 
 ## [2022](https://adventofcode.com/2022)
 
