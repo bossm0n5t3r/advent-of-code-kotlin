@@ -5,7 +5,7 @@ import utils.Direction.EAST
 import utils.Direction.NORTH
 import utils.Direction.SOUTH
 import utils.Direction.WEST
-import utils.readInput
+import utils.solve
 import utils.verify
 import java.util.LinkedList
 import java.util.Queue
@@ -14,7 +14,6 @@ import java.util.Queue
  * --- Day 10: Pipe Maze ---
  */
 fun main() {
-    val inputFile = "2023/Day10.txt"
     val tiles = charArrayOf('|', '-', 'L', 'J', '7', 'F')
     val pipes =
         mapOf(
@@ -76,101 +75,101 @@ fun main() {
         }
     }
 
-    fun part1(): Int {
-        val lines = inputFile.readInput()
-        val maze = lines.map { line -> line.toCharArray() }.toTypedArray()
-        val starting: Queue<Triple<Int, Int, Int>> = LinkedList()
-        val m = maze.size
-        val n = maze.first().size
+    fun part1() =
+        solve { lines ->
+            val maze = lines.map { line -> line.toCharArray() }.toTypedArray()
+            val starting: Queue<Triple<Int, Int, Int>> = LinkedList()
+            val m = maze.size
+            val n = maze.first().size
 
-        val visited = Array(tiles.size) { Array(m) { BooleanArray(n) { false } } }
-        val loop = Array(tiles.size) { mutableSetOf<Pair<Int, Int>>() }
-        for (r in 0 until m) {
-            for (c in 0 until n) {
-                if (maze[r][c] == 'S') {
-                    for (i in tiles.indices) {
-                        starting.offer(Triple(r, c, i))
-                        visited[i][r][c] = true
+            val visited = Array(tiles.size) { Array(m) { BooleanArray(n) { false } } }
+            val loop = Array(tiles.size) { mutableSetOf<Pair<Int, Int>>() }
+            for (r in 0 until m) {
+                for (c in 0 until n) {
+                    if (maze[r][c] == 'S') {
+                        for (i in tiles.indices) {
+                            starting.offer(Triple(r, c, i))
+                            visited[i][r][c] = true
+                        }
                     }
                 }
             }
-        }
-        while (starting.isNotEmpty()) {
-            val (curR, curC, loopIndex) = starting.poll()
-            visited[loopIndex][curR][curC] = true
-            visitTile(maze[curR][curC], maze, visited, curR, curC, loopIndex, loop, starting)
-        }
-
-        return loop.maxOf { it.size } / 2 + 1
-    }
-
-    fun part2(): Int {
-        val dr = intArrayOf(-1, -1, -1, 0, 0, 1, 1, 1)
-        val dc = intArrayOf(-1, 0, 1, -1, 1, -1, 0, 1)
-        val lines = inputFile.readInput()
-        val maze = mutableMapOf<Pair<Int, Int>, Char>()
-        val starting: Queue<Pair<Int, Int>> = LinkedList()
-        val visited = mutableSetOf<Pair<Int, Int>>()
-        lines.forEachIndexed { r, line ->
-            line.forEachIndexed { c, char ->
-                maze[r to c] = char
-                if (char == 'S') {
-                    starting.offer(r to c)
-                    visited.add(r to c)
-                }
+            while (starting.isNotEmpty()) {
+                val (curR, curC, loopIndex) = starting.poll()
+                visited[loopIndex][curR][curC] = true
+                visitTile(maze[curR][curC], maze, visited, curR, curC, loopIndex, loop, starting)
             }
+
+            loop.maxOf { it.size } / 2 + 1
         }
 
-        while (starting.isNotEmpty()) {
-            val (curR, curC) = starting.poll()
-            visited.add(curR to curC)
-            pipes[maze[curR to curC]]?.forEach { direction ->
-                val nr = curR + directionToDiff[direction]!!.first
-                val nc = curC + directionToDiff[direction]!!.second
-                if (visited.contains(nr to nc).not()) {
-                    val pipe = maze[nr to nc]
-                    if (pipe != null && pipes[pipe]?.contains(direction.reverse()) == true) {
-                        starting.offer(nr to nc)
+    fun part2() =
+        solve { lines ->
+            val dr = intArrayOf(-1, -1, -1, 0, 0, 1, 1, 1)
+            val dc = intArrayOf(-1, 0, 1, -1, 1, -1, 0, 1)
+            val maze = mutableMapOf<Pair<Int, Int>, Char>()
+            val starting: Queue<Pair<Int, Int>> = LinkedList()
+            val visited = mutableSetOf<Pair<Int, Int>>()
+            lines.forEachIndexed { r, line ->
+                line.forEachIndexed { c, char ->
+                    maze[r to c] = char
+                    if (char == 'S') {
+                        starting.offer(r to c)
+                        visited.add(r to c)
                     }
                 }
             }
-        }
 
-        val expandedGrid = mutableMapOf<Pair<Int, Int>, Char>()
-        maze.forEach { (point, char) ->
-            val expandedPoint = point.first * 3 to point.second * 3
-            expandedGrid[expandedPoint] = if (char != '.' && point in visited) '#' else '.'
-
-            for (i in 0 until 8) {
-                val nr = expandedPoint.first + dr[i]
-                val nc = expandedPoint.second + dc[i]
-                expandedGrid[nr to nc] = '.'
-            }
-            if (point in visited) {
-                pipes[char]!!.forEach {
-                    val moved = expandedPoint.first + directionToDiff[it]!!.first to expandedPoint.second + directionToDiff[it]!!.second
-                    expandedGrid[moved] = '#'
+            while (starting.isNotEmpty()) {
+                val (curR, curC) = starting.poll()
+                visited.add(curR to curC)
+                pipes[maze[curR to curC]]?.forEach { direction ->
+                    val nr = curR + directionToDiff[direction]!!.first
+                    val nc = curC + directionToDiff[direction]!!.second
+                    if (visited.contains(nr to nc).not()) {
+                        val pipe = maze[nr to nc]
+                        if (pipe != null && pipes[pipe]?.contains(direction.reverse()) == true) {
+                            starting.offer(nr to nc)
+                        }
+                    }
                 }
             }
-        }
 
-        val toFlood = LinkedList<Pair<Int, Int>>()
-        toFlood.add(0 to 0)
-        while (toFlood.isNotEmpty()) {
-            val current = toFlood.poll()
-            expandedGrid[current] = '='
-            for (i in 0 until 8) {
-                val nr = current.first + dr[i]
-                val nc = current.second + dc[i]
+            val expandedGrid = mutableMapOf<Pair<Int, Int>, Char>()
+            maze.forEach { (point, char) ->
+                val expandedPoint = point.first * 3 to point.second * 3
+                expandedGrid[expandedPoint] = if (char != '.' && point in visited) '#' else '.'
 
-                if (expandedGrid[nr to nc] == '.' && nr to nc !in toFlood) {
-                    toFlood.add(nr to nc)
+                for (i in 0 until 8) {
+                    val nr = expandedPoint.first + dr[i]
+                    val nc = expandedPoint.second + dc[i]
+                    expandedGrid[nr to nc] = '.'
+                }
+                if (point in visited) {
+                    pipes[char]!!.forEach {
+                        val moved = expandedPoint.first + directionToDiff[it]!!.first to expandedPoint.second + directionToDiff[it]!!.second
+                        expandedGrid[moved] = '#'
+                    }
                 }
             }
-        }
 
-        return maze.keys.count { expandedGrid[it.first * 3 to it.second * 3] == '.' }
-    }
+            val toFlood = LinkedList<Pair<Int, Int>>()
+            toFlood.add(0 to 0)
+            while (toFlood.isNotEmpty()) {
+                val current = toFlood.poll()
+                expandedGrid[current] = '='
+                for (i in 0 until 8) {
+                    val nr = current.first + dr[i]
+                    val nc = current.second + dc[i]
+
+                    if (expandedGrid[nr to nc] == '.' && nr to nc !in toFlood) {
+                        toFlood.add(nr to nc)
+                    }
+                }
+            }
+
+            maze.keys.count { expandedGrid[it.first * 3 to it.second * 3] == '.' }
+        }
 
     (part1() to 6701).verify()
     (part2() to 303).verify()
