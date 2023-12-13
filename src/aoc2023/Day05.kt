@@ -7,7 +7,6 @@ import utils.verify
  * --- Day 5: If You Give A Seed A Fertilizer ---
  */
 fun main() {
-    val inputFile = "2023/Day05.txt"
     val whitespace = " "
     val newLine = "\n"
 
@@ -33,7 +32,7 @@ fun main() {
             }
 
     fun part1() =
-        solve(inputFile) { lines ->
+        solve { lines ->
             val seeds =
                 lines
                     .first()
@@ -53,7 +52,7 @@ fun main() {
         }
 
     fun part2() =
-        solve(inputFile) { lines ->
+        solve { lines ->
             data class Seed(val start: Long, val range: Long) {
                 val seedRange = start..<(start + range)
             }
