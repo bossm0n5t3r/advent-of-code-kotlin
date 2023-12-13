@@ -1,6 +1,6 @@
 package aoc2023
 
-import utils.readInput
+import utils.getInputFile
 import utils.verify
 import java.math.BigInteger
 
@@ -8,8 +8,6 @@ import java.math.BigInteger
  * --- Day 4: Scratchcards ---
  */
 fun main() {
-    val inputFile = "2023/Day04.txt"
-
     fun String.toSet() =
         this
             .split(" ")
@@ -18,7 +16,7 @@ fun main() {
             .toSet()
 
     fun part1(): Long {
-        return inputFile.readInput().sumOf { line ->
+        return getInputFile().readLines().sumOf { line ->
             line.split(":", "|")
                 .drop(1)
                 .let { (winningNumbers, numbers) ->
@@ -37,7 +35,7 @@ fun main() {
 
     fun part2(): Int {
         val result = mutableMapOf<Int, Int>()
-        inputFile.readInput().forEachIndexed { index, line ->
+        getInputFile().readLines().forEachIndexed { index, line ->
             val cardIndex = index + 1
             val currentCards = result.getOrDefault(cardIndex, 0) + 1
             result[cardIndex] = currentCards
