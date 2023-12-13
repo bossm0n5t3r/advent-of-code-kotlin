@@ -8,10 +8,8 @@ import java.util.Stack
  * --- Day 9: Mirage Maintenance ---
  */
 fun main() {
-    val inputFile = "2023/Day09.txt"
-
     fun part1(): Int {
-        return solve(inputFile) { lines ->
+        return solve { lines ->
             lines.sumOf { line ->
                 val stack = Stack<List<Int>>()
                 var nums = line.split(" ").map { it.toInt() }
@@ -31,7 +29,7 @@ fun main() {
     }
 
     fun part2(): Int {
-        return solve(inputFile) { lines ->
+        return solve { lines ->
             lines.sumOf { line ->
                 val stack = Stack<List<Int>>()
                 var nums = line.split(" ").map { it.toInt() }
