@@ -7,15 +7,13 @@ import utils.verify
  * --- Day 6: Wait For It ---
  */
 fun main() {
-    val inputFile = "2023/Day06.txt"
-
     fun travelDistance(
         time: Long,
         hold: Long,
     ) = hold * (time - hold)
 
     fun part1(): Int {
-        return solve(inputFile) { lines ->
+        return solve { lines ->
             val times =
                 lines.first().substringAfter(":")
                     .split(" ")
@@ -36,7 +34,7 @@ fun main() {
     }
 
     fun part2(): Int {
-        return solve(inputFile) { lines ->
+        return solve { lines ->
             val time =
                 lines.first().substringAfter(":")
                     .replace(" ", "")
