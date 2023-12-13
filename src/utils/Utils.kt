@@ -3,6 +3,7 @@ package utils
 import java.io.File
 import java.math.BigInteger
 import java.security.MessageDigest
+import java.time.Year
 
 fun String.asInputStream() = File("src/resources/aoc$this").inputStream()
 
@@ -21,10 +22,7 @@ fun <T> String.mapInputForEachLine(work: (String) -> T): List<T> =
 
 fun String.readInput() = this.asInputStream().bufferedReader().readLines()
 
-fun <T> solve(
-    fileName: String,
-    function: (lines: List<String>) -> T,
-): T = function(fileName.readInput())
+fun <T> solve(function: (lines: List<String>) -> T): T = function(getInputFile().readLines())
 
 /**
  * Converts string to md5 hash.
@@ -41,5 +39,16 @@ fun <T> Pair<T, T>.verify() {
     println(first)
     require(first == second) {
         error("first != second - first: $first, second: $second")
+    }
+}
+
+fun getInputFile(year: Year = Year.now()): File {
+    val name = Throwable().stackTrace.first { it.className.contains("Day") }.fileName
+    val day = name.substringBefore(".kt").removePrefix("Day").padStart(2, '0')
+    val file = File("src/resources/aoc$year/Day$day.txt")
+    return if (file.readText().isBlank()) {
+        File("src/main/kotlin/day$day/input1.txt")
+    } else {
+        file
     }
 }
