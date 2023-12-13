@@ -7,8 +7,6 @@ import utils.verify
  * --- Day 7: Camel Cards ---
  */
 fun main() {
-    val inputFile = "2023/Day07.txt"
-
     data class Card(val hand: String, val bid: Int, val stringToTypeAndLabels: (hand: String) -> Pair<Int, List<Int>>)
 
     val cardComparator =
@@ -84,7 +82,7 @@ fun main() {
             return keysLabelsAndMaxCardSizeToTypeAndLabels(keys, labels, maxCardSize)
         }
 
-        return solve(inputFile) { lines ->
+        return solve { lines ->
             lines.map { line ->
                 line.split(" ").let {
                     Card(it.first(), it.last().toInt(), ::stringToTypeAndLabels)
@@ -147,7 +145,7 @@ fun main() {
             return keysLabelsAndMaxCardSizeToTypeAndLabels(keys, labels, maxCardSize)
         }
 
-        return solve(inputFile) { lines ->
+        return solve { lines ->
             lines.map { line ->
                 line.split(" ").let {
                     Card(it.first(), it.last().toInt(), ::stringToTypeAndLabels)
