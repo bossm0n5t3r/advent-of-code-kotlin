@@ -7,10 +7,16 @@ repositories {
     mavenCentral()
 }
 
-sourceSets {
-    main {
-        kotlin.srcDir("src")
-    }
+dependencies {
+    testImplementation(kotlin("test"))
+}
+
+tasks.test {
+    useJUnitPlatform()
+}
+
+kotlin {
+    jvmToolchain(23)
 }
 
 ktlint {
