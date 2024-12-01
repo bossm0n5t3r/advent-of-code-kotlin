@@ -5,7 +5,9 @@ import java.math.BigInteger
 import java.security.MessageDigest
 import java.time.Year
 
-fun String.asInputStream() = File("src/resources/aoc$this").inputStream()
+private const val RESOURCE_PATH = "src/main/resources"
+
+fun String.asInputStream() = File("$RESOURCE_PATH/aoc$this").inputStream()
 
 /**
  * Reads and works for each line from the given input txt file.
@@ -22,7 +24,10 @@ fun <T> String.mapInputForEachLine(work: (String) -> T): List<T> =
 
 fun String.readInput() = this.asInputStream().bufferedReader().readLines()
 
-fun <T> solve(function: (lines: List<String>) -> T): T = function(getInputFile().readLines())
+fun <T> solve(
+    year: Int = Year.now().value,
+    function: (lines: List<String>) -> T,
+): T = function(getInputFile(Year.of(year)).readLines())
 
 /**
  * Converts string to md5 hash.
@@ -44,8 +49,9 @@ fun <T> Pair<T, T>.verify() {
 
 fun getInputFile(year: Year = Year.now()): File {
     val name = Throwable().stackTrace.first { it.className.contains("Day") }.fileName
+    requireNotNull(name) { "Not found file name" }
     val day = name.substringBefore(".kt").removePrefix("Day").padStart(2, '0')
-    val file = File("src/resources/aoc$year/Day$day.txt")
+    val file = File("$RESOURCE_PATH/aoc$year/Day$day.txt")
     return if (file.readText().isBlank()) {
         File("src/main/kotlin/day$day/input1.txt")
     } else {

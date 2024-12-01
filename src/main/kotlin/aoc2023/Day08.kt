@@ -24,7 +24,7 @@ fun main() {
             .map { it.digitToInt() }
 
     fun part1() =
-        solve { lines ->
+        solve(2023) { lines ->
             val instructions = lines.first().toInstructions()
 
             val strToNode =
@@ -56,7 +56,7 @@ fun main() {
         }
 
     fun part2() =
-        solve { lines ->
+        solve(2023) { lines ->
             val instructions = lines.first().toInstructions()
 
             fun gcm(

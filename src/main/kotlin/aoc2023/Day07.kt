@@ -85,7 +85,7 @@ fun main() {
             return keysLabelsAndMaxCardSizeToTypeAndLabels(keys, labels, maxCardSize)
         }
 
-        return solve { lines ->
+        return solve(2023) { lines ->
             lines.map { line ->
                 line.split(" ").let {
                     Card(it.first(), it.last().toInt(), ::stringToTypeAndLabels)
@@ -145,7 +145,7 @@ fun main() {
             return keysLabelsAndMaxCardSizeToTypeAndLabels(keys, labels, maxCardSize)
         }
 
-        return solve { lines ->
+        return solve(2023) { lines ->
             lines.map { line ->
                 line.split(" ").let {
                     Card(it.first(), it.last().toInt(), ::stringToTypeAndLabels)

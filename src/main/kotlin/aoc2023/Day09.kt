@@ -9,7 +9,7 @@ import java.util.Stack
  */
 fun main() {
     fun part1(): Int =
-        solve { lines ->
+        solve(2023) { lines ->
             lines.sumOf { line ->
                 val stack = Stack<List<Int>>()
                 var nums = line.split(" ").map { it.toInt() }
@@ -28,7 +28,7 @@ fun main() {
         }
 
     fun part2(): Int =
-        solve { lines ->
+        solve(2023) { lines ->
             lines.sumOf { line ->
                 val stack = Stack<List<Int>>()
                 var nums = line.split(" ").map { it.toInt() }

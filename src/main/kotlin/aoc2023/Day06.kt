@@ -13,7 +13,7 @@ fun main() {
     ) = hold * (time - hold)
 
     fun part1(): Int =
-        solve { lines ->
+        solve(2023) { lines ->
             val times =
                 lines
                     .first()
@@ -36,7 +36,7 @@ fun main() {
         }.fold(1) { acc, i -> acc * i }
 
     fun part2(): Int =
-        solve { lines ->
+        solve(2023) { lines ->
             val time =
                 lines
                     .first()

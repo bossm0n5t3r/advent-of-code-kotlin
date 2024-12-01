@@ -34,7 +34,7 @@ fun main() {
             }
 
     fun part1() =
-        solve { lines ->
+        solve(2023) { lines ->
             val seeds =
                 lines
                     .first()
@@ -55,7 +55,7 @@ fun main() {
         }
 
     fun part2() =
-        solve { lines ->
+        solve(2023) { lines ->
             data class Seed(
                 val start: Long,
                 val range: Long,

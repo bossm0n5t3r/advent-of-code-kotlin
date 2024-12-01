@@ -32,7 +32,7 @@ fun main() {
     }
 
     fun part1() =
-        solve { lines ->
+        solve(2023) { lines ->
             val image =
                 lines
                     .map { it.split("").toMutableList() }
@@ -45,9 +45,10 @@ fun main() {
             ) = getNoGalaxiesRowsAndColsAndGalaxies(image)
 
             var result = 0
-            while (galaxiesList.isNotEmpty()) {
-                val cur = galaxiesList.removeFirst()
-                for (other in galaxiesList) {
+            val galaxiesMutableList = galaxiesList.toMutableList()
+            while (galaxiesMutableList.isNotEmpty()) {
+                val cur = galaxiesMutableList.removeFirst()
+                for (other in galaxiesMutableList) {
                     val dr = (minOf(cur.x, other.x)..<maxOf(cur.x, other.x)).toSet()
                     val dc = (minOf(cur.y, other.y)..<maxOf(cur.y, other.y)).toSet()
                     result += dr.size + dc.size + noGalaxiesRows.intersect(dr).size + noGalaxiesCols.intersect(dc).size
@@ -58,7 +59,7 @@ fun main() {
         }
 
     fun part2() =
-        solve { lines ->
+        solve(2023) { lines ->
             val image =
                 lines
                     .map { it.split("").toMutableList() }
@@ -72,9 +73,10 @@ fun main() {
 
             var result = 0L
             val times = 1_000_000 - 1
-            while (galaxiesList.isNotEmpty()) {
-                val cur = galaxiesList.removeFirst()
-                for (other in galaxiesList) {
+            val galaxiesMutableList = galaxiesList.toMutableList()
+            while (galaxiesMutableList.isNotEmpty()) {
+                val cur = galaxiesMutableList.removeFirst()
+                for (other in galaxiesMutableList) {
                     val dr = (minOf(cur.x, other.x)..<maxOf(cur.x, other.x)).toSet()
                     val dc = (minOf(cur.y, other.y)..<maxOf(cur.y, other.y)).toSet()
                     result += dr.size + dc.size

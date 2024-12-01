@@ -76,7 +76,7 @@ fun main() {
     }
 
     fun part1() =
-        solve { lines ->
+        solve(2023) { lines ->
             val maze = lines.map { line -> line.toCharArray() }.toTypedArray()
             val starting: Queue<Triple<Int, Int, Int>> = LinkedList()
             val m = maze.size
@@ -104,7 +104,7 @@ fun main() {
         }
 
     fun part2() =
-        solve { lines ->
+        solve(2023) { lines ->
             val dr = intArrayOf(-1, -1, -1, 0, 0, 1, 1, 1)
             val dc = intArrayOf(-1, 0, 1, -1, 1, -1, 0, 1)
             val maze = mutableMapOf<Pair<Int, Int>, Char>()
