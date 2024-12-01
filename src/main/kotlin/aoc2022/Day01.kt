@@ -67,7 +67,4 @@ object Day01 {
 
             top3Elves.totalCalories()
         }
-
-//    (part1() to 72017L).verify()
-//    (part2() to 212520L).verify()
 }
