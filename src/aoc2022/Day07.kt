@@ -79,13 +79,14 @@ fun main() {
         val totalAmountOfUsedSpace = dirToTotalSize["/"] ?: error("NOT FOUND /")
         val unusedSpace = 70000000L - totalAmountOfUsedSpace
         val needMoreSpace = 30000000L - unusedSpace
-        return dirToTotalSize.values.mapNotNull {
-            if (it > needMoreSpace) {
-                it
-            } else {
-                null
-            }
-        }.minOrNull() ?: error("NOT FOUND ANSWER")
+        return dirToTotalSize.values
+            .mapNotNull {
+                if (it > needMoreSpace) {
+                    it
+                } else {
+                    null
+                }
+            }.minOrNull() ?: error("NOT FOUND ANSWER")
     }
 
     (part1() to 1555642L).verify()

@@ -7,7 +7,11 @@ import utils.verify
  * --- Day 7: Camel Cards ---
  */
 fun main() {
-    data class Card(val hand: String, val bid: Int, val stringToTypeAndLabels: (hand: String) -> Pair<Int, List<Int>>)
+    data class Card(
+        val hand: String,
+        val bid: Int,
+        val stringToTypeAndLabels: (hand: String) -> Pair<Int, List<Int>>,
+    )
 
     val cardComparator =
         Comparator<Card> { o1: Card, o2: Card ->
@@ -29,8 +33,8 @@ fun main() {
         keys: Set<Char>,
         labels: List<Int>,
         maxCardSize: Int,
-    ): Pair<Int, List<Int>> {
-        return if (keys.size == 1) {
+    ): Pair<Int, List<Int>> =
+        if (keys.size == 1) {
             // - 6: Five of a kind, where all five cards have the same label: AAAAA
             6 to labels
         } else if (keys.size == 2) {
@@ -54,7 +58,6 @@ fun main() {
         } else {
             0 to labels
         }
-    }
 
     fun part1(): Int {
         val cardRank =
@@ -88,12 +91,10 @@ fun main() {
                     Card(it.first(), it.last().toInt(), ::stringToTypeAndLabels)
                 }
             }
-        }
-            .sortedWith(cardComparator)
+        }.sortedWith(cardComparator)
             .mapIndexed { index, card ->
                 card.bid * (index + 1)
-            }
-            .sum()
+            }.sum()
     }
 
     fun part2(): Int {
@@ -124,8 +125,7 @@ fun main() {
                         .toList()
                         .map {
                             it to (charToCharList[it]?.size ?: 0)
-                        }
-                        .sortedWith(compareByDescending<Pair<Char, Int>> { it.second }.thenBy { cardRank[it.first] })
+                        }.sortedWith(compareByDescending<Pair<Char, Int>> { it.second }.thenBy { cardRank[it.first] })
                         .first()
                         .first
                 charToCharList[maxKeyWithoutJ] =
@@ -151,12 +151,10 @@ fun main() {
                     Card(it.first(), it.last().toInt(), ::stringToTypeAndLabels)
                 }
             }
-        }
-            .sortedWith(cardComparator)
+        }.sortedWith(cardComparator)
             .mapIndexed { index, card ->
                 card.bid * (index + 1)
-            }
-            .sum()
+            }.sum()
     }
 
     (part1() to 250058342).verify()

@@ -7,7 +7,9 @@ import utils.verify
  * --- Day 9: Rope Bridge ---
  */
 fun main() {
-    data class Rope(private val size: Int = 2) {
+    data class Rope(
+        private val size: Int = 2,
+    ) {
         private val knots = Array(size) { 0 to 0 }
         val lastKnotVisited = mutableSetOf(knots.last())
 

@@ -91,18 +91,19 @@ fun main() {
         }
     }
 
-    fun part1(): Int {
-        return lines.chunked(3).mapIndexed { index, strings ->
-            val packetFirst = parsePacket(strings[0])
-            val packetSecond = parsePacket(strings[1])
+    fun part1(): Int =
+        lines
+            .chunked(3)
+            .mapIndexed { index, strings ->
+                val packetFirst = parsePacket(strings[0])
+                val packetSecond = parsePacket(strings[1])
 
-            if (compare(packetFirst, packetSecond) == 1) {
-                index + 1
-            } else {
-                0
-            }
-        }.sum()
-    }
+                if (compare(packetFirst, packetSecond) == 1) {
+                    index + 1
+                } else {
+                    0
+                }
+            }.sum()
 
     fun part2(): Int {
         val packets = mutableListOf<List<Any>>()
@@ -117,9 +118,10 @@ fun main() {
         packets.add(div2)
 
         val sortedPackets =
-            packets.sortedWith { ls1: List<Any>, ls2: List<Any> ->
-                if (ls1 == ls2) 0 else compare(ls2, ls1)
-            }.toMutableList()
+            packets
+                .sortedWith { ls1: List<Any>, ls2: List<Any> ->
+                    if (ls1 == ls2) 0 else compare(ls2, ls1)
+                }.toMutableList()
 
         return (sortedPackets.indexOf(div1) + 2) * (sortedPackets.indexOf(div2) + 2)
     }

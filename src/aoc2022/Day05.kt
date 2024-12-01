@@ -12,7 +12,8 @@ fun main() {
         str: String,
         stacks: MutableMap<Int, Stack<Char>>,
     ) = run {
-        str.chunked(4)
+        str
+            .chunked(4)
             .map { str -> str.trim() }
             .forEachIndexed { index, str ->
                 if (str.isNotBlank() && str.length > 1) {
@@ -39,7 +40,8 @@ fun main() {
                 }
             } else {
                 val (craftsToMove, from, to) =
-                    it.split("move", "from", "to")
+                    it
+                        .split("move", "from", "to")
                         .drop(1)
                         .map { s -> s.trim().toInt() }
 
@@ -51,7 +53,11 @@ fun main() {
             }
         }
 
-        return stacks.keys.sorted().drop(1).mapNotNull { stacks[it]?.peek() }.joinToString("")
+        return stacks.keys
+            .sorted()
+            .drop(1)
+            .mapNotNull { stacks[it]?.peek() }
+            .joinToString("")
     }
 
     fun part2(): String {
@@ -67,7 +73,8 @@ fun main() {
                 }
             } else {
                 val (craftsToMove, from, to) =
-                    it.split("move", "from", "to")
+                    it
+                        .split("move", "from", "to")
                         .drop(1)
                         .map { s -> s.trim().toInt() }
 
@@ -87,7 +94,11 @@ fun main() {
             }
         }
 
-        return stacks.keys.sorted().drop(1).mapNotNull { stacks[it]?.peek() }.joinToString("")
+        return stacks.keys
+            .sorted()
+            .drop(1)
+            .mapNotNull { stacks[it]?.peek() }
+            .joinToString("")
     }
 
     (part1() to "VWLCWGSDQ").verify()

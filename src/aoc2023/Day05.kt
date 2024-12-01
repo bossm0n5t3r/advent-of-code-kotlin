@@ -10,12 +10,14 @@ fun main() {
     val whitespace = " "
     val newLine = "\n"
 
-    data class Mapping(val destinationRangeStart: Long, val sourceRangeStart: Long, val rangeLength: Long) {
+    data class Mapping(
+        val destinationRangeStart: Long,
+        val sourceRangeStart: Long,
+        val rangeLength: Long,
+    ) {
         fun contains(target: Long) = sourceRangeStart <= target && target < sourceRangeStart + rangeLength
 
-        fun toDestination(source: Long): Long {
-            return source - sourceRangeStart + destinationRangeStart
-        }
+        fun toDestination(source: Long): Long = source - sourceRangeStart + destinationRangeStart
     }
 
     fun List<String>.toMappingsList() =
@@ -44,7 +46,8 @@ fun main() {
 
             seeds.minOf { seed ->
                 mappingsList.fold(seed) { acc, mappings ->
-                    mappings.firstOrNull { it.contains(acc) }
+                    mappings
+                        .firstOrNull { it.contains(acc) }
                         ?.toDestination(acc)
                         ?: acc
                 }
@@ -53,7 +56,10 @@ fun main() {
 
     fun part2() =
         solve { lines ->
-            data class Seed(val start: Long, val range: Long) {
+            data class Seed(
+                val start: Long,
+                val range: Long,
+            ) {
                 val seedRange = start..<(start + range)
             }
 
@@ -84,8 +90,7 @@ fun main() {
                             }
                         }
                     }
-                }
-                .minOf { it.first }
+                }.minOf { it.first }
         }
 
     (part1() to 51752125L).verify()

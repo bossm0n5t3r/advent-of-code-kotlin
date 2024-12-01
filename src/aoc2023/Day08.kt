@@ -7,7 +7,10 @@ import utils.verify
  * --- Day 8: Haunted Wasteland ---
  */
 fun main() {
-    data class Node(val cur: String, val next: List<String>) {
+    data class Node(
+        val cur: String,
+        val next: List<String>,
+    ) {
         init {
             require(next.size == 2)
         }
@@ -17,7 +20,8 @@ fun main() {
         this
             .replace('L', '0')
             .replace('R', '1')
-            .toCharArray().map { it.digitToInt() }
+            .toCharArray()
+            .map { it.digitToInt() }
 
     fun part1() =
         solve { lines ->
@@ -35,8 +39,7 @@ fun main() {
                             .let { (cur, left, right) ->
                                 Node(cur, listOf(left, right))
                             }
-                    }
-                    .associateBy { it.cur }
+                    }.associateBy { it.cur }
 
             var steps = 0
             var curPos = "AAA"
@@ -67,9 +70,7 @@ fun main() {
             fun lcm(
                 a: Long,
                 b: Long,
-            ): Long {
-                return a * b / gcm(a, b)
-            }
+            ): Long = a * b / gcm(a, b)
 
             val initialNodes = mutableListOf<String>()
             val strToNode =
@@ -88,23 +89,23 @@ fun main() {
                                     }
                                 }
                             }
-                    }
-                    .associateBy { it.cur }
+                    }.associateBy { it.cur }
 
-            initialNodes.map {
-                var curPos = it
-                var steps = 0L
-                while (curPos.endsWith("Z").not()) {
-                    steps++
-                    for (instruction in instructions) {
-                        val curNode = strToNode[curPos] ?: error("Not found Node")
-                        curPos = curNode.next[instruction]
+            initialNodes
+                .map {
+                    var curPos = it
+                    var steps = 0L
+                    while (curPos.endsWith("Z").not()) {
+                        steps++
+                        for (instruction in instructions) {
+                            val curNode = strToNode[curPos] ?: error("Not found Node")
+                            curPos = curNode.next[instruction]
+                        }
                     }
-                }
-                steps
-            }.let {
-                it.reduce { acc, bigInteger -> lcm(acc, bigInteger) }
-            } * instructions.size
+                    steps
+                }.let {
+                    it.reduce { acc, bigInteger -> lcm(acc, bigInteger) }
+                } * instructions.size
         }
 
     (part1() to 11309).verify()

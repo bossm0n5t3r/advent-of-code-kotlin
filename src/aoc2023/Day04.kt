@@ -15,23 +15,23 @@ fun main() {
             .map { it.trim().toInt() }
             .toSet()
 
-    fun part1(): Long {
-        return getInputFile().readLines().sumOf { line ->
-            line.split(":", "|")
+    fun part1(): Long =
+        getInputFile().readLines().sumOf { line ->
+            line
+                .split(":", "|")
                 .drop(1)
                 .let { (winningNumbers, numbers) ->
-                    winningNumbers.toSet().intersect(numbers.toSet())
+                    winningNumbers
+                        .toSet()
+                        .intersect(numbers.toSet())
                         .size
-                }
-                .let { size ->
+                }.let { size ->
                     (size - 1)
                         .takeIf { it >= 0 }
                         ?.let { BigInteger.valueOf(2).pow(it) }
                         ?: BigInteger.ZERO
-                }
-                .toLong()
+                }.toLong()
         }
-    }
 
     fun part2(): Int {
         val result = mutableMapOf<Int, Int>()
@@ -40,13 +40,15 @@ fun main() {
             val currentCards = result.getOrDefault(cardIndex, 0) + 1
             result[cardIndex] = currentCards
 
-            line.split(":", "|")
+            line
+                .split(":", "|")
                 .drop(1)
                 .let { (winningNumbers, numbers) ->
-                    winningNumbers.toSet().intersect(numbers.toSet())
+                    winningNumbers
+                        .toSet()
+                        .intersect(numbers.toSet())
                         .size
-                }
-                .let {
+                }.let {
                     for (i in 1..it) {
                         result[cardIndex + i] = result.getOrDefault(cardIndex + i, 0) + currentCards
                     }

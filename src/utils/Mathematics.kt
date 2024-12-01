@@ -11,14 +11,8 @@ fun gcm(
 fun lcm(
     a: Long,
     b: Long,
-): Long {
-    return a * b / gcm(a, b)
-}
+): Long = a * b / gcm(a, b)
 
-fun <T> List<List<T>>.transpose(): List<List<T>> {
-    return (this[0].indices).map { i -> (this.indices).map { j -> this[j][i] } }
-}
+fun <T> List<List<T>>.transpose(): List<List<T>> = (this[0].indices).map { i -> (this.indices).map { j -> this[j][i] } }
 
-inline fun <reified T> Array<Array<T>>.transpose(): Array<Array<T>> {
-    return Array(this[0].size) { i -> Array(this.size) { j -> this[j][i] } }
-}
+inline fun <reified T> Array<Array<T>>.transpose(): Array<Array<T>> = Array(this[0].size) { i -> Array(this.size) { j -> this[j][i] } }

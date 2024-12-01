@@ -8,8 +8,8 @@ import java.util.Stack
  * --- Day 9: Mirage Maintenance ---
  */
 fun main() {
-    fun part1(): Int {
-        return solve { lines ->
+    fun part1(): Int =
+        solve { lines ->
             lines.sumOf { line ->
                 val stack = Stack<List<Int>>()
                 var nums = line.split(" ").map { it.toInt() }
@@ -26,10 +26,9 @@ fun main() {
                 last
             }
         }
-    }
 
-    fun part2(): Int {
-        return solve { lines ->
+    fun part2(): Int =
+        solve { lines ->
             lines.sumOf { line ->
                 val stack = Stack<List<Int>>()
                 var nums = line.split(" ").map { it.toInt() }
@@ -46,7 +45,6 @@ fun main() {
                 last
             }
         }
-    }
 
     (part1() to 1877825184).verify()
     (part2() to 1108).verify()

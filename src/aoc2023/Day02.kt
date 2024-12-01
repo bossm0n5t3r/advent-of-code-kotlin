@@ -26,8 +26,8 @@ fun main() {
         }
     }
 
-    fun part2(): Int {
-        return getInputFile().readLines().sumOf { line ->
+    fun part2(): Int =
+        getInputFile().readLines().sumOf { line ->
             line
                 .split(':', ';', ',')
                 .map { it.trim().split(" ") }
@@ -37,12 +37,10 @@ fun main() {
                     values
                         .maxOfOrNull { it.first().toInt() }
                         ?: 1
-                }
-                .let {
+                }.let {
                     it.reduce { acc, i -> acc * i }
                 }
         }
-    }
 
     (part1(12, 13, 14) to 2563).verify()
     (part2() to 70768).verify()

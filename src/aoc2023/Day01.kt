@@ -7,17 +7,26 @@ import utils.verify
  * --- Day 1: Trebuchet?! ---
  */
 fun main() {
-    fun part1(): Int {
-        return getInputFile().readLines().sumOf { line ->
-            line.filter { it.isDigit() }
+    fun part1(): Int =
+        getInputFile().readLines().sumOf { line ->
+            line
+                .filter { it.isDigit() }
                 .let { "${it.first()}${it.last()}".toInt() }
         }
-    }
 
     fun part2(): Int {
         val numbers =
             listOf(
-                "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine",
+                "zero",
+                "one",
+                "two",
+                "three",
+                "four",
+                "five",
+                "six",
+                "seven",
+                "eight",
+                "nine",
             )
         return getInputFile().readLines().sumOf { line ->
             val indexToInt =

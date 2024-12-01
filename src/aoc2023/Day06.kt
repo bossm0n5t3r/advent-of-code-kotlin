@@ -12,15 +12,19 @@ fun main() {
         hold: Long,
     ) = hold * (time - hold)
 
-    fun part1(): Int {
-        return solve { lines ->
+    fun part1(): Int =
+        solve { lines ->
             val times =
-                lines.first().substringAfter(":")
+                lines
+                    .first()
+                    .substringAfter(":")
                     .split(" ")
                     .filter { it.isNotBlank() }
                     .map { it.toInt() }
             val distances =
-                lines.last().substringAfter(":")
+                lines
+                    .last()
+                    .substringAfter(":")
                     .split(" ")
                     .filter { it.isNotBlank() }
                     .map { it.toInt() }
@@ -29,18 +33,20 @@ fun main() {
             (1..it.first).count { hold ->
                 travelDistance(it.first.toLong(), hold.toLong()) >= it.second
             }
-        }
-            .fold(1) { acc, i -> acc * i }
-    }
+        }.fold(1) { acc, i -> acc * i }
 
-    fun part2(): Int {
-        return solve { lines ->
+    fun part2(): Int =
+        solve { lines ->
             val time =
-                lines.first().substringAfter(":")
+                lines
+                    .first()
+                    .substringAfter(":")
                     .replace(" ", "")
                     .toLong()
             val distance =
-                lines.last().substringAfter(":")
+                lines
+                    .last()
+                    .substringAfter(":")
                     .replace(" ", "")
                     .toLong()
             time to distance
@@ -49,7 +55,6 @@ fun main() {
                 travelDistance(it.first, hold) >= it.second
             }
         }
-    }
 
     (part1() to 114400).verify()
     (part2() to 21039729).verify()

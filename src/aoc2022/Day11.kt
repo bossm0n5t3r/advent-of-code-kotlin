@@ -69,7 +69,13 @@ fun main() {
     }
 
     fun List<String>.toMonkey(): Monkey {
-        val idx = this.first().substringAfter("Monkey ").dropLast(1).trim().toInt()
+        val idx =
+            this
+                .first()
+                .substringAfter("Monkey ")
+                .dropLast(1)
+                .trim()
+                .toInt()
         val items =
             this[1]
                 .substringAfter("Starting items:")
@@ -77,9 +83,27 @@ fun main() {
                 .split(", ")
                 .map { it.trim().toLong().toBigInteger() }
         val operation = parseOperationFrom(this[2])
-        val divisor = this[3].substringAfter("Test:").trim().split(" ").last().toLong()
-        val ifTrue = this[4].substringAfter("If true:").trim().split(" ").last().toInt()
-        val ifFalse = this[5].substringAfter("If false:").trim().split(" ").last().toInt()
+        val divisor =
+            this[3]
+                .substringAfter("Test:")
+                .trim()
+                .split(" ")
+                .last()
+                .toLong()
+        val ifTrue =
+            this[4]
+                .substringAfter("If true:")
+                .trim()
+                .split(" ")
+                .last()
+                .toInt()
+        val ifFalse =
+            this[5]
+                .substringAfter("If false:")
+                .trim()
+                .split(" ")
+                .last()
+                .toInt()
         return Monkey(idx, LinkedList(items), operation, divisor, ifTrue, ifFalse)
     }
 
@@ -101,7 +125,11 @@ fun main() {
                 .map { it.divisor }
                 .reduce { acc, i -> acc * i }
         inspectItems(monkeys, modulo)
-        return monkeys.map { it.inspectTimes }.sortedDescending().take(2).reduce { acc, i -> acc * i }
+        return monkeys
+            .map { it.inspectTimes }
+            .sortedDescending()
+            .take(2)
+            .reduce { acc, i -> acc * i }
     }
 
     fun part2(): Long {
@@ -111,7 +139,11 @@ fun main() {
                 .map { it.divisor }
                 .reduce { acc, i -> acc * i }
         inspectItems(monkeys, modulo, 10000, false)
-        return monkeys.map { it.inspectTimes }.sortedDescending().take(2).reduce { acc, i -> acc * i }
+        return monkeys
+            .map { it.inspectTimes }
+            .sortedDescending()
+            .take(2)
+            .reduce { acc, i -> acc * i }
     }
 
     (part1() to 112221L).verify()

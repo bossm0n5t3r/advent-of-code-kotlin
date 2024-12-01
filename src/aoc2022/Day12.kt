@@ -11,7 +11,10 @@ import java.util.Queue
 fun main() {
     val lines = "2022/Day12.txt".asInputStream().bufferedReader().readLines()
 
-    data class Location(val r: Int, val c: Int) {
+    data class Location(
+        val r: Int,
+        val c: Int,
+    ) {
         constructor(location: Pair<Int, Int>) : this(location.first, location.second)
     }
 
@@ -22,22 +25,23 @@ fun main() {
         val startLocations = mutableListOf<Location>()
         val endLocations = mutableListOf<Location>()
         val heightmap =
-            lines.mapIndexed { r, s ->
-                s
-                    .toCharArray()
-                    .also {
-                        it.forEachIndexed { c, element ->
-                            when (element) {
-                                'E' -> endLocations.add(Location(r to c))
-                                else -> {
-                                    if (startPositions.contains(element)) {
-                                        startLocations.add(Location(r to c))
+            lines
+                .mapIndexed { r, s ->
+                    s
+                        .toCharArray()
+                        .also {
+                            it.forEachIndexed { c, element ->
+                                when (element) {
+                                    'E' -> endLocations.add(Location(r to c))
+                                    else -> {
+                                        if (startPositions.contains(element)) {
+                                            startLocations.add(Location(r to c))
+                                        }
                                     }
                                 }
                             }
                         }
-                    }
-            }.toTypedArray()
+                }.toTypedArray()
         return Triple(heightmap, startLocations, endLocations)
     }
 

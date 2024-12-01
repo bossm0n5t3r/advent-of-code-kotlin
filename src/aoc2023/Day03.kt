@@ -12,7 +12,8 @@ fun main() {
 
     fun part1(): Int {
         val engineSchematic =
-            getInputFile().readLines()
+            getInputFile()
+                .readLines()
                 .map { it.toCharArray() }
                 .toTypedArray()
         val r = engineSchematic.size
@@ -58,7 +59,8 @@ fun main() {
 
     fun part2(): Int {
         val engineSchematic =
-            getInputFile().readLines()
+            getInputFile()
+                .readLines()
                 .map { it.toCharArray() }
                 .toTypedArray()
         val r = engineSchematic.size
