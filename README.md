@@ -2,6 +2,12 @@
 
 - [https://adventofcode.com/](https://adventofcode.com/)
 
+## [2024](https://adventofcode.com/2024)
+
+|                               Day                                |                      File                      |
+|:----------------------------------------------------------------:|:----------------------------------------------:|
+| [Day 1: Historian Hysteria](https://adventofcode.com/2024/day/1) | [Day01.kt](./src/main/kotlin/aoc2024/Day01.kt) |
+
 ## [2023](https://adventofcode.com/2023)
 
 |                                      Day                                      |                      File                      |
