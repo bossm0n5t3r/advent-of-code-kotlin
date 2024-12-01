@@ -1,6 +1,6 @@
 plugins {
-    kotlin("jvm") version "1.9.21"
-    id("org.jlleitschuh.gradle.ktlint") version "11.6.1"
+    kotlin("jvm") version "2.1.0"
+    id("org.jlleitschuh.gradle.ktlint") version "12.1.2"
 }
 
 repositories {
@@ -13,12 +13,6 @@ sourceSets {
     }
 }
 
-tasks {
-    wrapper {
-        gradleVersion = "8.5"
-    }
-}
-
 ktlint {
-    version.set("1.0.0")
+    version.set("1.4.1")
 }
