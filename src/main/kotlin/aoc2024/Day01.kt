@@ -8,7 +8,7 @@ import kotlin.math.abs
  */
 object Day01 {
     fun part1() =
-        solve { lines ->
+        solve(2024) { lines ->
             val (left, right) =
                 lines
                     .map { line ->
@@ -24,7 +24,7 @@ object Day01 {
         }
 
     fun part2() =
-        solve { lines ->
+        solve(2024) { lines ->
             val (left, right) =
                 lines
                     .map { line ->
