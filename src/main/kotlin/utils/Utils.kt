@@ -25,7 +25,7 @@ fun <T> String.mapInputForEachLine(work: (String) -> T): List<T> =
 fun String.readInput() = this.asInputStream().bufferedReader().readLines()
 
 fun <T> solve(
-    year: Int = Year.now().value,
+    year: Int,
     function: (lines: List<String>) -> T,
 ): T = function(getInputFile(Year.of(year)).readLines())
 
