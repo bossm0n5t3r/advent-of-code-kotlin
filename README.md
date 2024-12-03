@@ -7,6 +7,7 @@
 |                               Day                                |                      File                      |
 |:----------------------------------------------------------------:|:----------------------------------------------:|
 | [Day 1: Historian Hysteria](https://adventofcode.com/2024/day/1) | [Day01.kt](./src/main/kotlin/aoc2024/Day01.kt) |
+| [Day 2: Red-Nosed Reports](https://adventofcode.com/2024/day/2)  | [Day02.kt](./src/main/kotlin/aoc2024/Day02.kt) |
 
 ## [2023](https://adventofcode.com/2023)
 
