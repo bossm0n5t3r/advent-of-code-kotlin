@@ -9,6 +9,7 @@
 | [Day 1: Historian Hysteria](https://adventofcode.com/2024/day/1) | [Day01.kt](./src/main/kotlin/aoc2024/Day01.kt) |
 | [Day 2: Red-Nosed Reports](https://adventofcode.com/2024/day/2)  | [Day02.kt](./src/main/kotlin/aoc2024/Day02.kt) |
 |    [Day 3: Mull It Over](https://adventofcode.com/2024/day/3)    | [Day03.kt](./src/main/kotlin/aoc2024/Day03.kt) |
+|    [Day 4: Ceres Search](https://adventofcode.com/2024/day/4)    | [Day04.kt](./src/main/kotlin/aoc2024/Day04.kt) |
 
 ## [2023](https://adventofcode.com/2023)
 
