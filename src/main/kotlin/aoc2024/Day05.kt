@@ -2,6 +2,9 @@ package aoc2024
 
 import utils.solve
 
+/**
+ * --- Day 5: Print Queue ---
+ */
 object Day05 {
     private const val PAGE_SPLITTER = '|'
     private const val PAGE_COMMA = ','
