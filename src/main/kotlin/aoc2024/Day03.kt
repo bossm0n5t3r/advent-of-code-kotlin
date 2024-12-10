@@ -2,6 +2,9 @@ package aoc2024
 
 import utils.solve
 
+/**
+ * --- Day 3: Mull It Over ---
+ */
 object Day03 {
     private const val MUL = "mul"
     private const val MUL_PATTERN = "$MUL\\([0-9]{1,3},[0-9]{1,3}\\)"
