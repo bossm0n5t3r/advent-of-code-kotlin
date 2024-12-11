@@ -4,15 +4,16 @@
 
 ## [2024](https://adventofcode.com/2024)
 
-|                               Day                                |                      File                      |
-|:----------------------------------------------------------------:|:----------------------------------------------:|
-| [Day 1: Historian Hysteria](https://adventofcode.com/2024/day/1) | [Day01.kt](./src/main/kotlin/aoc2024/Day01.kt) |
-| [Day 2: Red-Nosed Reports](https://adventofcode.com/2024/day/2)  | [Day02.kt](./src/main/kotlin/aoc2024/Day02.kt) |
-|    [Day 3: Mull It Over](https://adventofcode.com/2024/day/3)    | [Day03.kt](./src/main/kotlin/aoc2024/Day03.kt) |
-|    [Day 4: Ceres Search](https://adventofcode.com/2024/day/4)    | [Day04.kt](./src/main/kotlin/aoc2024/Day04.kt) |
-|    [Day 5: Print Queue](https://adventofcode.com/2024/day/5)     | [Day05.kt](./src/main/kotlin/aoc2024/Day05.kt) |
-|  [Day 6: Guard Gallivant](https://adventofcode.com/2024/day/6)   | [Day06.kt](./src/main/kotlin/aoc2024/Day06.kt) |
-|   [Day 7: Bridge Repair](https://adventofcode.com/2024/day/7)    | [Day07.kt](./src/main/kotlin/aoc2024/Day07.kt) |
+|                                 Day                                 |                      File                      |
+|:-------------------------------------------------------------------:|:----------------------------------------------:|
+|  [Day 1: Historian Hysteria](https://adventofcode.com/2024/day/1)   | [Day01.kt](./src/main/kotlin/aoc2024/Day01.kt) |
+|   [Day 2: Red-Nosed Reports](https://adventofcode.com/2024/day/2)   | [Day02.kt](./src/main/kotlin/aoc2024/Day02.kt) |
+|     [Day 3: Mull It Over](https://adventofcode.com/2024/day/3)      | [Day03.kt](./src/main/kotlin/aoc2024/Day03.kt) |
+|     [Day 4: Ceres Search](https://adventofcode.com/2024/day/4)      | [Day04.kt](./src/main/kotlin/aoc2024/Day04.kt) |
+|      [Day 5: Print Queue](https://adventofcode.com/2024/day/5)      | [Day05.kt](./src/main/kotlin/aoc2024/Day05.kt) |
+|    [Day 6: Guard Gallivant](https://adventofcode.com/2024/day/6)    | [Day06.kt](./src/main/kotlin/aoc2024/Day06.kt) |
+|     [Day 7: Bridge Repair](https://adventofcode.com/2024/day/7)     | [Day07.kt](./src/main/kotlin/aoc2024/Day07.kt) |
+| [Day 8: Resonant Collinearity](https://adventofcode.com/2024/day/8) | [Day08.kt](./src/main/kotlin/aoc2024/Day08.kt) |
 
 ## [2023](https://adventofcode.com/2023)
 
