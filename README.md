@@ -12,6 +12,7 @@
 |    [Day 4: Ceres Search](https://adventofcode.com/2024/day/4)    | [Day04.kt](./src/main/kotlin/aoc2024/Day04.kt) |
 |    [Day 5: Print Queue](https://adventofcode.com/2024/day/5)     | [Day05.kt](./src/main/kotlin/aoc2024/Day05.kt) |
 |  [Day 6: Guard Gallivant](https://adventofcode.com/2024/day/6)   | [Day06.kt](./src/main/kotlin/aoc2024/Day06.kt) |
+|   [Day 7: Bridge Repair](https://adventofcode.com/2024/day/7)    | [Day07.kt](./src/main/kotlin/aoc2024/Day07.kt) |
 
 ## [2023](https://adventofcode.com/2023)
 
