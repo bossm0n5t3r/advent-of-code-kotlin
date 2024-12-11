@@ -14,6 +14,7 @@
 |    [Day 6: Guard Gallivant](https://adventofcode.com/2024/day/6)    | [Day06.kt](./src/main/kotlin/aoc2024/Day06.kt) |
 |     [Day 7: Bridge Repair](https://adventofcode.com/2024/day/7)     | [Day07.kt](./src/main/kotlin/aoc2024/Day07.kt) |
 | [Day 8: Resonant Collinearity](https://adventofcode.com/2024/day/8) | [Day08.kt](./src/main/kotlin/aoc2024/Day08.kt) |
+|    [Day 9: Disk Fragmenter](https://adventofcode.com/2024/day/9)    | [Day09.kt](./src/main/kotlin/aoc2024/Day09.kt) |
 
 ## [2023](https://adventofcode.com/2023)
 
