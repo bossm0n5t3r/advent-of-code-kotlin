@@ -17,6 +17,7 @@
 |    [Day 9: Disk Fragmenter](https://adventofcode.com/2024/day/9)    | [Day09.kt](./src/main/kotlin/aoc2024/Day09.kt) |
 |       [Day 10: Hoof It](https://adventofcode.com/2024/day/10)       | [Day10.kt](./src/main/kotlin/aoc2024/Day10.kt) |
 |  [Day 11: Plutonian Pebbles](https://adventofcode.com/2024/day/11)  | [Day11.kt](./src/main/kotlin/aoc2024/Day11.kt) |
+|    [Day 12: Garden Groups](https://adventofcode.com/2024/day/12)    | [Day12.kt](./src/main/kotlin/aoc2024/Day12.kt) |
 
 ## [2023](https://adventofcode.com/2023)
 
