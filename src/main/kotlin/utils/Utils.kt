@@ -58,3 +58,20 @@ fun getInputFile(year: Year = Year.now()): File {
         file
     }
 }
+
+fun Map<Pair<Int, Int>, Char>.debug() {
+    val (rKeys, cKeys) = keys.unzip()
+    val (minR, maxR) = rKeys.run { minOrNull() to maxOrNull() }
+    val (minC, maxC) = cKeys.run { minOrNull() to maxOrNull() }
+    requireNotNull(minR)
+    requireNotNull(maxR)
+    requireNotNull(minC)
+    requireNotNull(maxC)
+    for (r in minR..maxR) {
+        for (c in minC..maxC) {
+            print(this[r to c])
+        }
+        println()
+    }
+    println()
+}
