@@ -21,6 +21,7 @@
 |  [Day 13: Claw Contraption](https://adventofcode.com/2024/day/13)   | [Day13.kt](./src/main/kotlin/aoc2024/Day13.kt) |
 |  [Day 14: Restroom Redoubt](https://adventofcode.com/2024/day/14)   | [Day14.kt](./src/main/kotlin/aoc2024/Day14.kt) |
 |   [Day 15: Warehouse Woes](https://adventofcode.com/2024/day/15)    | [Day15.kt](./src/main/kotlin/aoc2024/Day15.kt) |
+|    [Day 16: Reindeer Maze](https://adventofcode.com/2024/day/16)    | [Day16.kt](./src/main/kotlin/aoc2024/Day16.kt) |
 
 ## [2023](https://adventofcode.com/2023)
 
