@@ -3,12 +3,18 @@ package aoc2025
 import utils.solve
 
 object Day01 {
+    private val directionSign = mapOf("L" to -1, "R" to 1)
+
+    private fun String.toSign() = requireNotNull(directionSign[this])
+
+    private fun String.toSignAndDistance() = this.take(1).toSign() to this.substring(1).toInt()
+
     fun part1() =
         solve(2025) { lines ->
             lines
                 .runningFold(50) { acc, line ->
-                    val (rotation, distance) = (if (line.take(1) == "L") -1 else 1) to line.substring(1).toInt()
-                    ((acc + distance * rotation) + 100) % 100
+                    val (sign, distance) = line.toSignAndDistance()
+                    ((acc + distance * sign) + 100) % 100
                 }.count { it == 0 }
         }
 
@@ -16,12 +22,11 @@ object Day01 {
         solve(2025) { lines ->
             var result = 0
             lines.runningFold(50) { acc, line ->
-                val (rotation, distance) =
-                    (if (line.take(1) == "L") -1 else 1) to line.substring(1).toInt()
+                val (sign, distance) = line.toSignAndDistance()
 
-                result += zerosDuring(acc, rotation, distance)
+                result += zerosDuring(acc, sign, distance)
 
-                var tmp = acc + rotation * distance
+                var tmp = acc + sign * distance
                 while (tmp < 0) {
                     tmp += 100
                 }
@@ -33,11 +38,11 @@ object Day01 {
 
     private fun zerosDuring(
         start: Int,
-        dir: Int,
+        sign: Int,
         dist: Int,
     ): Int {
         var remainingDistance =
-            if (dir > 0) {
+            if (sign > 0) {
                 (100 - start) % 100
             } else {
                 start % 100
