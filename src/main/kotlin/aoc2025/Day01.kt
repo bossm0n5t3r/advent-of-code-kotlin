@@ -14,7 +14,7 @@ object Day01 {
             lines
                 .runningFold(50) { acc, line ->
                     val (sign, distance) = line.toSignAndDistance()
-                    ((acc + distance * sign) + 100) % 100
+                    ((acc + sign * distance) % 100 + 100) % 100
                 }.count { it == 0 }
         }
 
