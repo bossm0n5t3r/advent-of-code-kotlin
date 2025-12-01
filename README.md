@@ -2,6 +2,12 @@
 
 - [https://adventofcode.com/](https://adventofcode.com/)
 
+## [2025](https://adventofcode.com/2025)
+
+|                              Day                              |                      File                      |
+|:-------------------------------------------------------------:|:----------------------------------------------:|
+| [Day 1: Secret Entrance](https://adventofcode.com/2025/day/1) | [Day01.kt](./src/main/kotlin/aoc2025/Day01.kt) |
+
 ## [2024](https://adventofcode.com/2024)
 
 |                                 Day                                 |                      File                      |
