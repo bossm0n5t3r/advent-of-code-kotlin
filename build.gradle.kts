@@ -1,6 +1,6 @@
 plugins {
-    kotlin("jvm") version "2.1.0"
-    id("org.jlleitschuh.gradle.ktlint") version "12.1.2"
+    alias(libs.plugins.kotlin.jvm)
+    alias(libs.plugins.ktlint)
 }
 
 repositories {
@@ -8,7 +8,10 @@ repositories {
 }
 
 dependencies {
-    testImplementation(kotlin("test"))
+    testImplementation(libs.kotlin.test.junit5)
+    testImplementation(libs.junit.jupiter.api)
+    testImplementation(libs.junit.jupiter.engine)
+    testImplementation(libs.assertj.core)
 }
 
 tasks.test {
@@ -16,9 +19,16 @@ tasks.test {
 }
 
 kotlin {
-    jvmToolchain(23)
+    jvmToolchain(
+        libs.versions.jdk.version
+            .get()
+            .toInt(),
+    )
 }
 
 ktlint {
-    version.set("1.4.1")
+    version.set(
+        libs.versions.ktlint.version
+            .get(),
+    )
 }
