@@ -38,5 +38,6 @@ bin/
 ### Mac OS ###
 .DS_Store
 
-### resources ###
-src/main/resources/
+### Advent of Code resources ###
+# Ignore all AoC-related resource folders under src/main/resources
+src/main/resources/aoc*/
