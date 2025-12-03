@@ -1,15 +1,17 @@
 package aoc2025
 
+import utils.Problem
+import utils.runProblem
 import utils.solve
 
-object Day01 {
+object Day01 : Problem<Int> {
     private val directionSign = mapOf("L" to -1, "R" to 1)
 
     private fun String.toSign() = requireNotNull(directionSign[this])
 
     private fun String.toSignAndDistance() = this.take(1).toSign() to this.substring(1).toInt()
 
-    fun part1() =
+    override fun part1() =
         solve(2025) { lines ->
             lines
                 .runningFold(50) { acc, line ->
@@ -18,7 +20,7 @@ object Day01 {
                 }.count { it == 0 }
         }
 
-    fun part2() =
+    override fun part2() =
         solve(2025) { lines ->
             var result = 0
             lines.runningFold(50) { acc, line ->
@@ -58,4 +60,8 @@ object Day01 {
             1 + (dist - remainingDistance) / 100
         }
     }
+}
+
+fun main() {
+    Day01.runProblem(1180, 6892)
 }
