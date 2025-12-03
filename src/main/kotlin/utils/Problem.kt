@@ -1,7 +1,7 @@
 package utils
 
-interface Problem {
-    fun part1(): Long
+interface Problem<T> {
+    fun part1(): T
 
-    fun part2(): Long
+    fun part2(): T
 }

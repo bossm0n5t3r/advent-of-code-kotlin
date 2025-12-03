@@ -3,7 +3,7 @@ package aoc2025
 import utils.Problem
 import utils.solve
 
-object Day02 : Problem {
+object Day02 : Problem<Long> {
     private fun Long.isSimpleInvalid(): Boolean = this.toString().let { it.take(it.length / 2).repeat(2) == it }
 
     private fun Pair<Long, Long>.findInvalidIds(filterFunction: (Long) -> Boolean): Long =
