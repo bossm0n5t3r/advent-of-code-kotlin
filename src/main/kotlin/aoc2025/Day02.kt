@@ -1,6 +1,7 @@
 package aoc2025
 
 import utils.Problem
+import utils.runProblem
 import utils.solve
 
 object Day02 : Problem<Long> {
@@ -54,6 +55,5 @@ object Day02 : Problem<Long> {
 }
 
 fun main() {
-    Day02.part1().also(::println) // 29940924880
-    Day02.part2().also(::println) // 48631958998
+    Day02.runProblem(29940924880, 48631958998)
 }
