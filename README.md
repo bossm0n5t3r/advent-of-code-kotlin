@@ -8,6 +8,7 @@
 |:-------------------------------------------------------------:|:----------------------------------------------:|
 | [Day 1: Secret Entrance](https://adventofcode.com/2025/day/1) | [Day01.kt](./src/main/kotlin/aoc2025/Day01.kt) |
 |    [Day 2: Gift Shop](https://adventofcode.com/2025/day/2)    | [Day02.kt](./src/main/kotlin/aoc2025/Day02.kt) |
+|      [Day 3: Lobby](https://adventofcode.com/2025/day/3)      | [Day03.kt](./src/main/kotlin/aoc2025/Day03.kt) |
 
 ## [2024](https://adventofcode.com/2024)
 
