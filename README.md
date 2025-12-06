@@ -10,6 +10,7 @@
 |      [Day 2: Gift Shop](https://adventofcode.com/2025/day/2)      | [Day02.kt](./src/main/kotlin/aoc2025/Day02.kt) |
 |        [Day 3: Lobby](https://adventofcode.com/2025/day/3)        | [Day03.kt](./src/main/kotlin/aoc2025/Day03.kt) |
 | [Day 4: Printing Department](https://adventofcode.com/2025/day/4) | [Day04.kt](./src/main/kotlin/aoc2025/Day04.kt) |
+|      [Day 5: Cafeteria](https://adventofcode.com/2025/day/5)      | [Day05.kt](./src/main/kotlin/aoc2025/Day05.kt) |
 
 ## [2024](https://adventofcode.com/2024)
 
