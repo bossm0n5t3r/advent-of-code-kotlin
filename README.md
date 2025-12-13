@@ -11,6 +11,7 @@
 |        [Day 3: Lobby](https://adventofcode.com/2025/day/3)        | [Day03.kt](./src/main/kotlin/aoc2025/Day03.kt) |
 | [Day 4: Printing Department](https://adventofcode.com/2025/day/4) | [Day04.kt](./src/main/kotlin/aoc2025/Day04.kt) |
 |      [Day 5: Cafeteria](https://adventofcode.com/2025/day/5)      | [Day05.kt](./src/main/kotlin/aoc2025/Day05.kt) |
+|   [Day 6: Trash Compactor](https://adventofcode.com/2025/day/6)   | [Day06.kt](./src/main/kotlin/aoc2025/Day06.kt) |
 
 ## [2024](https://adventofcode.com/2024)
 
